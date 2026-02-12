@@ -31,7 +31,12 @@ export default async function AdminTeamPage({ searchParams }: Props) {
       </p>
 
       {/* Add form */}
-      <form action={createTeamMember} className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <form
+        action={async (fd: FormData) => {
+          await createTeamMember(fd);
+        }}
+        className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      >
         <h2 className="font-display text-lg font-semibold text-slate-900">Add team member</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div>

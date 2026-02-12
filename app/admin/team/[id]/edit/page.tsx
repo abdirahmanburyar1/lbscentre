@@ -18,7 +18,12 @@ export default async function EditTeamMemberPage({ params }: Props) {
         <Link href="/admin/team" className="text-[var(--logo-green)] hover:underline">← Back to Our Team</Link>
       </p>
 
-      <form action={(s, fd) => updateTeamMember(id, s, fd)} className="mt-6 max-w-xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <form
+        action={async (fd: FormData) => {
+          await updateTeamMember(id, undefined, fd);
+        }}
+        className="mt-6 max-w-xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      >
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700">Name</label>

@@ -1,6 +1,7 @@
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Pagination } from "@/components/ui/Pagination";
+import { PageHero } from "@/components/ui/PageHero";
 import { getTrainingsPaginated } from "@/lib/queries/training";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -19,14 +20,10 @@ export default async function TrainingPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="bg-earth-800 text-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold">Training</h1>
-          <p className="mt-4 text-earth-200 max-w-2xl">
-            Capacity building and skill development for communities and partners.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Training"
+        description="Capacity building and skill development for communities and partners."
+      />
 
       <Section>
         {data.items.length > 0 ? (
@@ -40,7 +37,7 @@ export default async function TrainingPage({ searchParams }: Props) {
                   image={training.image}
                   imageAlt={training.title}
                 >
-                  <div className="mt-3 text-sm text-earth-500">
+                  <div className="mt-3 text-sm text-slate-500">
                     {formatDate(training.date)}
                     {training.location && ` · ${training.location}`}
                     {training.category && ` · ${training.category}`}
@@ -51,7 +48,7 @@ export default async function TrainingPage({ searchParams }: Props) {
             <Pagination basePath="/training" page={data.page} totalPages={data.totalPages} />
           </>
         ) : (
-          <p className="text-center text-earth-600 py-12">No training events yet.</p>
+          <p className="text-center text-slate-500 py-12">No training events yet.</p>
         )}
       </Section>
     </>

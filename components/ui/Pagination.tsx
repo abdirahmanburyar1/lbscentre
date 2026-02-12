@@ -23,39 +23,32 @@ export function Pagination({ basePath, page, totalPages, searchParams = {} }: Pa
     return qs ? `${basePath}?${qs}` : basePath;
   };
 
+  const linkClass =
+    "rounded-xl border-2 border-[var(--logo-green-dark)]/40 bg-white px-4 py-2.5 text-sm font-medium text-[var(--logo-green-dark)] shadow-sm transition hover:bg-[var(--logo-brown-bg)] hover:border-[var(--logo-green)]";
+  const disabledClass =
+    "cursor-not-allowed rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-400";
+
   return (
     <nav
-      className="flex items-center justify-center gap-2 py-8"
+      className="flex items-center justify-center gap-3 py-10"
       aria-label="Pagination"
     >
       {prevPage ? (
-        <Link
-          href={href(prevPage)}
-          className="rounded-lg border border-earth-300 bg-white px-4 py-2 text-earth-700 hover:bg-earth-50"
-        >
+        <Link href={href(prevPage)} className={linkClass}>
           Previous
         </Link>
       ) : (
-        <span className="cursor-not-allowed rounded-lg border border-earth-200 bg-earth-50 px-4 py-2 text-earth-400">
-          Previous
-        </span>
+        <span className={disabledClass}>Previous</span>
       )}
-
-      <span className="px-4 py-2 text-earth-600">
+      <span className="px-4 py-2 text-sm text-slate-600">
         Page {page} of {totalPages}
       </span>
-
       {nextPage ? (
-        <Link
-          href={href(nextPage)}
-          className="rounded-lg border border-earth-300 bg-white px-4 py-2 text-earth-700 hover:bg-earth-50"
-        >
+        <Link href={href(nextPage)} className={linkClass}>
           Next
         </Link>
       ) : (
-        <span className="cursor-not-allowed rounded-lg border border-earth-200 bg-earth-50 px-4 py-2 text-earth-400">
-          Next
-        </span>
+        <span className={disabledClass}>Next</span>
       )}
     </nav>
   );

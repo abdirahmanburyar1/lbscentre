@@ -33,7 +33,7 @@ model ContactMessage {
   message   String   @db.Text
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
-  deletedAt DateTime?
+  deletedAt DateTime?  // soft delete
 
   @@index([createdAt])
 }

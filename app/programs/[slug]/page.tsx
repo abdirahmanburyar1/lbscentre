@@ -25,10 +25,12 @@ export default async function ProgramSlugPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-earth-800 text-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold">{program.title}</h1>
-          <p className="mt-4 text-earth-200 max-w-2xl">
+      <section className="bg-[var(--logo-brown)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            {program.title}
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-stone-200">
             {program.description.slice(0, 200)}
             {program.description.length > 200 ? "…" : ""}
           </p>
@@ -37,7 +39,7 @@ export default async function ProgramSlugPage({ params }: Props) {
 
       {program.image && (
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 -mt-8">
-          <div className="relative aspect-[21/9] overflow-hidden rounded-xl">
+          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl">
             <Image
               src={program.image}
               alt={program.title}
@@ -51,15 +53,13 @@ export default async function ProgramSlugPage({ params }: Props) {
       )}
 
       <Section>
-        <div className="prose prose-earth max-w-none">
-          <p className="text-earth-600 text-lg leading-relaxed whitespace-pre-line">
-            {program.description}
-          </p>
-        </div>
+        <p className="text-slate-600 text-lg leading-relaxed whitespace-pre-line max-w-3xl">
+          {program.description}
+        </p>
 
         {program.projects.length > 0 && (
           <div className="mt-16">
-            <h2 className="font-display text-2xl font-semibold text-earth-800 mb-6">
+            <h2 className="font-display text-2xl font-semibold text-slate-900 mb-6">
               Related Projects
             </h2>
             <ul className="space-y-3">
@@ -67,7 +67,7 @@ export default async function ProgramSlugPage({ params }: Props) {
                 <li key={p.id}>
                   <Link
                     href={`/projects/${p.slug}`}
-                    className="text-accent hover:underline font-medium"
+                    className="text-[var(--logo-green-dark)] font-medium hover:text-[var(--logo-green-darker)] hover:underline"
                   >
                     {p.title}
                   </Link>

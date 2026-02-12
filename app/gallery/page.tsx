@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Pagination } from "@/components/ui/Pagination";
+import { PageHero } from "@/components/ui/PageHero";
 import { getGalleryPaginated } from "@/lib/queries/gallery";
 import type { Metadata } from "next";
 
@@ -18,14 +19,10 @@ export default async function GalleryPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="bg-earth-800 text-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold">Gallery</h1>
-          <p className="mt-4 text-earth-200 max-w-2xl">
-            Glimpses from our projects and communities.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Gallery"
+        description="Glimpses from our projects and communities."
+      />
 
       <Section>
         {data.items.length > 0 ? (
@@ -33,21 +30,21 @@ export default async function GalleryPage({ searchParams }: Props) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {data.items.map((img) => (
                 <figure key={img.id} className="group">
-                  <div className="relative aspect-square overflow-hidden rounded-lg bg-earth-100">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-slate-100">
                     <Image
                       src={img.imageUrl}
                       alt={img.caption ?? "Gallery image"}
                       fill
-                      className="object-cover transition group-hover:scale-105"
+                      className="object-cover transition duration-300 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       loading="lazy"
                     />
                   </div>
                   {(img.caption || img.project) && (
-                    <figcaption className="mt-2 text-sm text-earth-600">
+                    <figcaption className="mt-2 text-sm text-slate-600">
                       {img.caption}
                       {img.project && (
-                        <span className="block text-earth-500">
+                        <span className="block text-slate-500">
                           Project: {img.project.title}
                         </span>
                       )}
@@ -59,7 +56,7 @@ export default async function GalleryPage({ searchParams }: Props) {
             <Pagination basePath="/gallery" page={data.page} totalPages={data.totalPages} />
           </>
         ) : (
-          <p className="text-center text-earth-600 py-12">No images in the gallery yet.</p>
+          <p className="text-center text-slate-500 py-12">No images in the gallery yet.</p>
         )}
       </Section>
     </>

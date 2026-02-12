@@ -28,18 +28,20 @@ export default async function ProjectSlugPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-earth-800 text-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-[var(--logo-brown)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
           {project.program && (
             <Link
               href={`/programs/${project.program.slug}`}
-              className="text-earth-300 hover:text-white text-sm font-medium"
+              className="text-sm font-medium text-[var(--logo-yellow)] hover:text-[var(--logo-yellow-muted)]"
             >
               {project.program.title}
             </Link>
           )}
-          <h1 className="font-display text-4xl font-bold mt-2">{project.title}</h1>
-          <div className="mt-4 flex flex-wrap gap-4 text-earth-200 text-sm">
+          <h1 className="font-display text-4xl font-bold tracking-tight text-white mt-2 sm:text-5xl">
+            {project.title}
+          </h1>
+          <div className="mt-4 flex flex-wrap gap-4 text-stone-300 text-sm">
             {project.location && <span>Location: {project.location}</span>}
             {project.startDate && (
               <span>Start: {formatDate(project.startDate)}</span>
@@ -53,7 +55,7 @@ export default async function ProjectSlugPage({ params }: Props) {
 
       {project.coverImage && (
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 -mt-8">
-          <div className="relative aspect-[21/9] overflow-hidden rounded-xl">
+          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl">
             <Image
               src={project.coverImage}
               alt={project.title}
@@ -67,29 +69,27 @@ export default async function ProjectSlugPage({ params }: Props) {
       )}
 
       <Section>
-        <div className="prose prose-earth max-w-none">
-          <div className="text-earth-600 text-lg leading-relaxed whitespace-pre-line">
-            {project.description}
-          </div>
+        <div className="text-slate-600 text-lg leading-relaxed whitespace-pre-line max-w-3xl">
+          {project.description}
         </div>
 
         {project.outcomes && (
           <div className="mt-12">
-            <h2 className="font-display text-2xl font-semibold text-earth-800 mb-4">
+            <h2 className="font-display text-2xl font-semibold text-slate-900 mb-4">
               Outcomes
             </h2>
-            <p className="text-earth-600 whitespace-pre-line">{project.outcomes}</p>
+            <p className="text-slate-600 whitespace-pre-line">{project.outcomes}</p>
           </div>
         )}
 
         {gallery.length > 0 && (
           <div className="mt-12">
-            <h2 className="font-display text-2xl font-semibold text-earth-800 mb-6">
+            <h2 className="font-display text-2xl font-semibold text-slate-900 mb-6">
               Gallery
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {gallery.map((url, i) => (
-                <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
                   <Image
                     src={url}
                     alt={`${project.title} gallery ${i + 1}`}

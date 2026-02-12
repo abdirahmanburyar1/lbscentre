@@ -23,20 +23,37 @@ export function Card({
 }: CardProps) {
   const content = (
     <>
-      {image && (
-        <div className="relative aspect-video w-full overflow-hidden rounded-t-xl bg-earth-100">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--logo-brown-bg)]">
+        {image ? (
           <Image
             src={image}
             alt={imageAlt ?? title}
             fill
-            className="object-cover"
+            className="object-cover transition duration-300 group-hover:scale-[1.02]"
             sizes="(max-width: 768px) 100vw, 400px"
           />
-        </div>
-      )}
-      <div className="p-6">
-        <h3 className="font-display text-xl font-semibold text-earth-800">{title}</h3>
-        {description && <p className="mt-2 text-earth-600 line-clamp-3">{description}</p>}
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--logo-brown-bg)] to-[var(--logo-green)]/10">
+            <Image
+              src="/lbscentre.png"
+              alt=""
+              width={80}
+              height={80}
+              className="object-contain opacity-40"
+              aria-hidden
+            />
+          </div>
+        )}
+      </div>
+      <div className="p-4 sm:p-6 md:p-7">
+        <h3 className="font-display text-lg font-semibold text-slate-900 sm:text-xl">
+          {title}
+        </h3>
+        {description && (
+          <p className="mt-2 text-slate-600 line-clamp-3 leading-relaxed">
+            {description}
+          </p>
+        )}
         {children}
       </div>
     </>
@@ -46,7 +63,7 @@ export function Card({
     return (
       <Link
         href={href}
-        className={`block overflow-hidden rounded-xl border border-earth-200 bg-white shadow-sm transition hover:shadow-md hover:border-earth-300 ${className}`}
+        className={`group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:border-[var(--logo-green-dark)]/40 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
       >
         {content}
       </Link>
@@ -55,7 +72,7 @@ export function Card({
 
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-earth-200 bg-white shadow-sm ${className}`}
+      className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}
     >
       {content}
     </div>

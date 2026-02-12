@@ -14,13 +14,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: {
-    default: "LBS Centre for Social and Agricultural Development",
+    default: "LBS Centre for Social & Agricultural Development",
     template: "%s | LBS Centre",
   },
   description:
-    "LBS Centre for Social and Agricultural Development (LNGO – Somalia). Food security, sustainable agriculture, livestock, climate resilience, WASH, and youth empowerment.",
+    "LBS Centre for Social & Agricultural Development (LNGO – Somalia). Food security, sustainable agriculture, livestock, climate resilience, WASH, and youth empowerment.",
+  icons: {
+    icon: "/lbscentre.png",
+    apple: "/lbscentre.png",
+  },
   openGraph: {
     type: "website",
   },
@@ -33,9 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-[72px] sm:pt-[80px]">{children}</main>
         <Footer />
       </body>
     </html>

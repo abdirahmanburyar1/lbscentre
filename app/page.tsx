@@ -1,6 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
+import { AnimateIn } from "@/components/ui/AnimateIn";
+import { FocusAreasDiceCarousel } from "@/components/ui/FocusAreasDiceCarousel";
+import { HeroBackground } from "@/components/ui/HeroBackground";
+import { VisionMissionValuesSection } from "@/components/ui/VisionMissionCard";
 import { getFeaturedProjects, getProjectCount } from "@/lib/queries/projects";
 
 const FOCUS_AREAS = [
@@ -40,143 +45,156 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-earth-800 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            LBS Centre for Social and Agricultural Development
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-earth-200">
-            Building resilient communities in Somalia through food security, sustainable agriculture, and inclusive development.
-          </p>
-          <div className="mt-10 flex gap-4">
+      {/* Hero - overlaps under fixed transparent navbar; scrolling images */}
+      <section className="relative -mt-[72px] min-h-[420px] overflow-hidden bg-[var(--logo-brown)] pt-[72px] sm:-mt-[80px] sm:min-h-[480px] sm:pt-[80px] lg:min-h-[520px]">
+        <HeroBackground />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(107,66,26,0.82)_0%,rgba(107,66,26,0.78)_50%,rgba(63,124,10,0.22)_100%)]" />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-16 sm:px-6 sm:py-24 lg:items-start lg:px-8 lg:py-32">
+          <div className="animate-fade-in-up max-w-2xl">
+            <h1 className="font-display text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl lg:leading-tight break-words">
+              LBS Centre for Social & Agricultural Development
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-stone-200 sm:mt-6 sm:text-lg">
+              Building resilient communities through food security, sustainable agriculture, and inclusive development.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link
+                href="/about"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[var(--logo-green)] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-[var(--logo-green-dark)] active:bg-[var(--logo-green-darker)] hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Learn About Us
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl border-2 border-[var(--logo-yellow)] px-6 py-3.5 text-sm font-semibold text-[var(--logo-yellow)] transition hover:bg-[var(--logo-yellow)]/20 active:bg-[var(--logo-yellow)]/30 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are - one row: single image (3.jpg) + text side by side */}
+      <Section
+        title="Who We Are"
+        subtitle="A brief introduction to our mission and work."
+      >
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-center lg:gap-10">
+          <AnimateIn animation="fade-in-up">
+            <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-slate-200 shadow-md lg:max-w-sm">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/images/3.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 384px"
+                />
+              </div>
+            </div>
+          </AnimateIn>
+          <AnimateIn animation="fade-in-up" delay={100}>
+            <p className="text-center text-lg leading-relaxed text-slate-600 lg:text-left">
+              LBS Centre for Social & Agricultural Development (LNGO – Somalia) works to improve livelihoods and build resilience in communities through integrated programs in agriculture, nutrition, WASH, and youth empowerment. We partner with local stakeholders to deliver sustainable, impact-driven solutions.
+            </p>
+          </AnimateIn>
+        </div>
+      </Section>
+
+      {/* Vision, Mission & Values - circular card design */}
+      <VisionMissionValuesSection />
+
+      {/* Focus Areas - dice cards: first 5 + one "more" dice; section bg only */}
+      <Section
+        title="Focus Areas"
+        subtitle="Our work spans multiple sectors to create lasting impact. Click a card to see the next."
+      >
+        <FocusAreasDiceCarousel items={FOCUS_AREAS.slice(0, 5)} />
+      </Section>
+
+      {/* Featured Projects */}
+      <section className="border-t border-slate-200 bg-slate-50/50 py-12 sm:py-16 md:py-24 lg:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center sm:mb-14">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+              Featured Projects
+            </h2>
+            <p className="mt-2 max-w-2xl mx-auto text-base text-slate-600 sm:mt-3 sm:text-lg">
+              Latest initiatives making a difference on the ground.
+            </p>
+          </div>
+          {featuredProjects.length > 0 ? (
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {featuredProjects.map((project, i) => (
+                <AnimateIn key={project.id} animation="scale-in" delay={i === 0 ? 0 : i === 1 ? 100 : 200}>
+                  <Card
+                    title={project.title}
+                    description={project.description.slice(0, 160) + (project.description.length > 160 ? "…" : "")}
+                    href={`/projects/${project.slug}`}
+                    image={project.coverImage}
+                    imageAlt={project.title}
+                  />
+                </AnimateIn>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-slate-500">No projects yet. Check back soon.</p>
+          )}
+          <div className="mt-12 text-center">
             <Link
-              href="/about"
-              className="rounded-lg bg-accent px-6 py-3 font-medium text-white hover:opacity-90"
+              href="/projects"
+              className="inline-flex items-center rounded-xl border-2 border-[var(--logo-green-dark)] bg-white px-5 py-3 text-sm font-semibold text-[var(--logo-green-dark)] shadow-sm transition hover:bg-[var(--logo-brown-bg)] hover:border-[var(--logo-green)]"
             >
-              Learn About Us
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-lg border border-earth-400 px-6 py-3 font-medium hover:bg-earth-700"
-            >
-              Get in Touch
+              View All Projects
             </Link>
           </div>
         </div>
       </section>
 
-      {/* About short */}
-      <Section title="Who We Are" subtitle="A brief introduction to our mission and work.">
-        <p className="mx-auto max-w-3xl text-center text-lg text-earth-600">
-          LBS Centre (LNGO – Somalia) works to improve livelihoods and build resilience in communities through integrated programs in agriculture, nutrition, WASH, and youth empowerment. We partner with local stakeholders to deliver sustainable, impact-driven solutions.
-        </p>
-      </Section>
-
-      {/* Vision & Mission */}
-      <Section className="bg-earth-50">
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-xl bg-white p-8 shadow-sm">
-            <h3 className="font-display text-2xl font-semibold text-earth-800">Our Vision</h3>
-            <p className="mt-4 text-earth-600">
-              A Somalia where every community has access to food security, sustainable livelihoods, and resilience to climate and conflict.
-            </p>
-          </div>
-          <div className="rounded-xl bg-white p-8 shadow-sm">
-            <h3 className="font-display text-2xl font-semibold text-earth-800">Our Mission</h3>
-            <p className="mt-4 text-earth-600">
-              To strengthen social and agricultural development through evidence-based programs, capacity building, and partnerships that empower communities and promote inclusive growth.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Focus Areas */}
-      <Section
-        title="Focus Areas"
-        subtitle="Our work spans multiple sectors to create lasting impact."
-      >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FOCUS_AREAS.map((area) => (
-            <Card
-              key={area.title}
-              title={area.title}
-              description={area.description}
-              href={`/programs#${area.title.toLowerCase().replace(/\s+/g, "-")}`}
-            />
-          ))}
-        </div>
-      </Section>
-
-      {/* Featured Projects */}
-      <Section
-        className="bg-earth-50"
-        title="Featured Projects"
-        subtitle="Latest initiatives making a difference on the ground."
-      >
-        {featuredProjects.length > 0 ? (
-          <div className="grid gap-8 md:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <Card
-                key={project.id}
-                title={project.title}
-                description={project.description.slice(0, 160) + (project.description.length > 160 ? "…" : "")}
-                href={`/projects/${project.slug}`}
-                image={project.coverImage}
-                imageAlt={project.title}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-earth-600">No projects yet. Check back soon.</p>
-        )}
-        <div className="mt-10 text-center">
-          <Link
-            href="/projects"
-            className="inline-flex items-center rounded-lg border border-earth-300 bg-white px-5 py-2.5 font-medium text-earth-700 hover:bg-earth-50"
-          >
-            View All Projects
-          </Link>
-        </div>
-      </Section>
-
-      {/* Impact summary */}
+      {/* Impact */}
       <Section title="Our Impact" subtitle="Numbers that reflect our commitment.">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <AnimateIn animation="fade-in-up">
+        <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4">
           <div className="text-center">
-            <p className="font-display text-4xl font-bold text-accent">{projectCount}+</p>
-            <p className="mt-1 text-earth-600">Projects</p>
+            <p className="font-display text-2xl font-bold text-[var(--logo-green-dark)] sm:text-3xl md:text-4xl">{projectCount}+</p>
+            <p className="mt-1 text-sm font-medium text-slate-500">Projects</p>
           </div>
           <div className="text-center">
-            <p className="font-display text-4xl font-bold text-accent">6</p>
-            <p className="mt-1 text-earth-600">Program Areas</p>
+            <p className="font-display text-2xl font-bold text-[var(--logo-green-dark)] sm:text-3xl md:text-4xl">6</p>
+            <p className="mt-1 text-sm font-medium text-slate-500">Program Areas</p>
           </div>
           <div className="text-center">
-            <p className="font-display text-4xl font-bold text-accent">Somalia</p>
-            <p className="mt-1 text-earth-600">Focus Region</p>
+            <p className="font-display text-xl font-bold text-[var(--logo-green-dark)] sm:text-2xl md:text-3xl">Somalia</p>
+            <p className="mt-1 text-sm font-medium text-slate-500">Focus Region</p>
           </div>
           <div className="text-center">
-            <p className="font-display text-4xl font-bold text-accent">LNGO</p>
-            <p className="mt-1 text-earth-600">Local NGO</p>
+            <p className="font-display text-2xl font-bold text-[var(--logo-green-dark)] sm:text-3xl md:text-4xl">LNGO</p>
+            <p className="mt-1 text-sm font-medium text-slate-500">Local NGO</p>
           </div>
         </div>
+        </AnimateIn>
       </Section>
 
-      {/* Contact CTA */}
-      <Section className="bg-earth-800 text-white">
+      {/* CTA */}
+      <section className="border-t border-[var(--logo-green-dark)]/30 bg-[var(--logo-brown)] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+        <AnimateIn animation="fade-in">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">Get in Touch</h2>
-          <p className="mt-4 text-earth-200">
+          <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
+            Get in Touch
+          </h2>
+          <p className="mt-3 text-sm text-stone-300 sm:mt-4 sm:text-base">
             Partner with us, support our programs, or learn more about our work.
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white hover:opacity-90"
+            className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[var(--logo-green)] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-[var(--logo-green-dark)] active:bg-[var(--logo-green-darker)] sm:mt-8"
           >
             Contact Us
           </Link>
         </div>
-      </Section>
+        </AnimateIn>
+      </section>
     </>
   );
 }

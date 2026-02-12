@@ -1,44 +1,47 @@
 @import "tailwindcss";
 
+/* LBS Centre logo core colors */
 :root {
-  --background: #faf8f5;
-  --foreground: #2d2a26;
-  /* Earth tone palette */
-  --earth-50: #f7f5f2;
-  --earth-100: #ebe7e0;
-  --earth-200: #d4cdc3;
-  --earth-300: #b8ad9e;
-  --earth-400: #9a8c7a;
-  --earth-500: #7d6e5a;
-  --earth-600: #655847;
-  --earth-700: #4f4538;
-  --earth-800: #3d352b;
-  --earth-900: #2d2820;
-  --accent: #5a7d4a;
-  --accent-hover: #4a6d3a;
+  --logo-brown: #6b421a;
+  --logo-brown-light: #8b5a2b;
+  --logo-brown-bg: #f5efe8;
+  --logo-green: #59a500;
+  --logo-green-bright: #6bc00f;
+  --logo-green-dark: #3f7c0a;
+  --logo-green-darker: #356a00;
+  --logo-yellow: #fdd03a;
+  --logo-yellow-muted: #fbc02d;
+  /* UI derived from logo */
+  --bg: #faf9f7;
+  --bg-elevated: #ffffff;
+  --fg: #1c1917;
+  --fg-muted: #57534e;
+  --accent: #59a500;
+  --accent-hover: #3f7c0a;
+  --border: #e7e5e4;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-logo-brown: var(--logo-brown);
+  --color-logo-green: var(--logo-green);
+  --color-logo-green-dark: var(--logo-green-dark);
+  --color-logo-yellow: var(--logo-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-earth-50: var(--earth-50);
-  --color-earth-100: var(--earth-100);
-  --color-earth-200: var(--earth-200);
-  --color-earth-300: var(--earth-300);
-  --color-earth-400: var(--earth-400);
-  --color-earth-500: var(--earth-500);
-  --color-earth-600: var(--earth-600);
-  --color-earth-700: var(--earth-700);
-  --color-earth-800: var(--earth-800);
-  --color-earth-900: var(--earth-900);
-  --color-accent: var(--accent);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
@@ -51,4 +54,91 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--logo-green);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-bar {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(100%); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Scroll-triggered: start invisible, run animation when .animate-in-visible is added */
+.animate-in-root {
+  opacity: 0;
+}
+.animate-in-root.animate-in-visible.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+.animate-in-root.animate-in-visible.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+.animate-in-root.animate-in-visible.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-scale-in,
+  .animate-in-root.animate-in-visible.animate-fade-in,
+  .animate-in-root.animate-in-visible.animate-fade-in-up,
+  .animate-in-root.animate-in-visible.animate-scale-in {
+    animation: fade-in 0.2s ease-out forwards;
+  }
+  .animation-delay-100,
+  .animation-delay-200,
+  .animation-delay-300,
+  .animation-delay-400 {
+    animation-delay: 0ms;
+  }
 }

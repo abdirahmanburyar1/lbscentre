@@ -1,6 +1,7 @@
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Pagination } from "@/components/ui/Pagination";
+import { PageHero } from "@/components/ui/PageHero";
 import { getProjectsPaginated } from "@/lib/queries/projects";
 import type { Metadata } from "next";
 
@@ -20,14 +21,10 @@ export default async function ProjectsPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="bg-earth-800 text-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold">Our Projects</h1>
-          <p className="mt-4 text-earth-200 max-w-2xl">
-            Explore our work on the ground.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Our Projects"
+        description="Explore our work on the ground."
+      />
 
       <Section>
         {data.items.length > 0 ? (
@@ -52,7 +49,7 @@ export default async function ProjectsPage({ searchParams }: Props) {
             />
           </>
         ) : (
-          <p className="text-center text-earth-600 py-12">No projects found.</p>
+          <p className="text-center text-slate-500 py-12">No projects found.</p>
         )}
       </Section>
     </>

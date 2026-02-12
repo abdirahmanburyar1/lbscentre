@@ -3,6 +3,8 @@ import Image from "next/image";
 import { getSession } from "@/lib/auth";
 import { logout } from "@/app/actions/auth";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminLayout({
   children,
 }: { children: React.ReactNode }) {

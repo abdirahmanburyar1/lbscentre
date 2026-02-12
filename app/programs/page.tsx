@@ -4,6 +4,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { getAllPrograms } from "@/lib/queries/programs";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Programs",
   description:

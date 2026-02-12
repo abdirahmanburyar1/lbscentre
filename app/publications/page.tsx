@@ -6,6 +6,8 @@ import { getPublicationsPaginated } from "@/lib/queries/publications";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 type Props = { searchParams: Promise<{ page?: string }> };
 
 export const metadata: Metadata = {

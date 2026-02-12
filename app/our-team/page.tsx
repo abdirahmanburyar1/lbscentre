@@ -4,6 +4,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { getTeamMembers } from "@/lib/queries/team";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Our Team",
   description: "Meet the people behind LBS Centre for Social & Agricultural Development.",

@@ -5,6 +5,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { getProjectsPaginated } from "@/lib/queries/projects";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   searchParams: Promise<{ page?: string; search?: string }>;
 };

@@ -5,6 +5,8 @@ import { getProgramBySlug } from "@/lib/queries/programs";
 import { Section } from "@/components/ui/Section";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -6,6 +6,7 @@ import type { Program } from "@prisma/client";
 type ProjectFormProps = {
   action: (prevState: unknown, formData: FormData) => Promise<unknown>;
   programs: Program[];
+  hiddenFields?: Record<string, string>;
   initial?: {
     title: string;
     slug: string;
@@ -20,7 +21,7 @@ type ProjectFormProps = {
   };
 };
 
-export function ProjectForm({ action, programs, initial }: ProjectFormProps) {
+export function ProjectForm({ action, programs, hiddenFields, initial }: ProjectFormProps) {
   const [state, formAction] = useActionState(action, undefined);
   const errors =
     state && typeof state === "object" && "error" in state
@@ -29,6 +30,10 @@ export function ProjectForm({ action, programs, initial }: ProjectFormProps) {
 
   return (
     <form action={formAction} className="mt-6 max-w-2xl space-y-4">
+      {hiddenFields &&
+        Object.entries(hiddenFields).map(([name, value]) => (
+          <input key={name} type="hidden" name={name} value={value} />
+        ))}
       <div>
         <label htmlFor="title" className="block text-sm font-medium text-slate-700">Title *</label>
         <input

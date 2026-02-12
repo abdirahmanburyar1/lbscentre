@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lbscentre.org";
+export const dynamic = "force-dynamic";
+
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lbscentre.net";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [projects, programs] = await Promise.all([

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { ProjectForm } from "../../ProjectForm";
-import { updateProject } from "../../actions";
+import { updateProjectForm } from "../../actions";
 import { getAllPrograms } from "@/lib/queries/programs";
 
 type Props = { params: Promise<{ id: string }> };
@@ -18,8 +18,9 @@ export default async function EditProjectPage({ params }: Props) {
     <div>
       <h1 className="font-display text-2xl font-bold text-slate-900">Edit Project</h1>
       <ProjectForm
-        action={(s, fd) => updateProject(id, s, fd)}
+        action={updateProjectForm}
         programs={programs}
+        hiddenFields={{ id }}
         initial={{
           title: project.title,
           slug: project.slug,

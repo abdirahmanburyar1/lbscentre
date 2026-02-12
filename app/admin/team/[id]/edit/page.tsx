@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { ImageKitUploadField } from "@/components/admin/ImageKitUploadField";
-import { updateTeamMember, deleteTeamMember } from "../../actions";
+import { updateTeamMemberForm, deleteTeamMember } from "../../actions";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -19,11 +19,10 @@ export default async function EditTeamMemberPage({ params }: Props) {
       </p>
 
       <form
-        action={async (fd: FormData) => {
-          await updateTeamMember(id, undefined, fd);
-        }}
+        action={updateTeamMemberForm}
         className="mt-6 max-w-xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
       >
+        <input type="hidden" name="id" value={id} />
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700">Name</label>

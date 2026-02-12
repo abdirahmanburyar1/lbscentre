@@ -56,6 +56,13 @@ export async function updateTeamMember(
   redirect("/admin/team");
 }
 
+/** Form action for edit form: reads id from formData so it can be passed as a server action reference. */
+export async function updateTeamMemberForm(formData: FormData) {
+  const id = formData.get("id") as string;
+  if (!id) return { error: { _form: ["Missing id."] } };
+  return updateTeamMember(id, undefined, formData);
+}
+
 export async function deleteTeamMember(formData: FormData) {
   await requireAdmin();
   const id = formData.get("id") as string;

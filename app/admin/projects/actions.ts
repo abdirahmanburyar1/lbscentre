@@ -114,6 +114,13 @@ export async function updateProject(id: string, prevState: unknown, formData: Fo
   redirect("/admin/projects");
 }
 
+/** Form action for edit form: reads id from formData so it can be passed as a server action reference. */
+export async function updateProjectForm(prevState: unknown, formData: FormData) {
+  const id = formData.get("id") as string;
+  if (!id) return { error: { _form: ["Missing id."] } };
+  return updateProject(id, prevState, formData);
+}
+
 export async function deleteProject(formData: FormData) {
   await requireAdmin();
   const id = formData.get("id") as string;

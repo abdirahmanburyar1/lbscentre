@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f5;
+  --foreground: #2d2a26;
+  /* Earth tone palette */
+  --earth-50: #f7f5f2;
+  --earth-100: #ebe7e0;
+  --earth-200: #d4cdc3;
+  --earth-300: #b8ad9e;
+  --earth-400: #9a8c7a;
+  --earth-500: #7d6e5a;
+  --earth-600: #655847;
+  --earth-700: #4f4538;
+  --earth-800: #3d352b;
+  --earth-900: #2d2820;
+  --accent: #5a7d4a;
+  --accent-hover: #4a6d3a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-earth-50: var(--earth-50);
+  --color-earth-100: var(--earth-100);
+  --color-earth-200: var(--earth-200);
+  --color-earth-300: var(--earth-300);
+  --color-earth-400: var(--earth-400);
+  --color-earth-500: var(--earth-500);
+  --color-earth-600: var(--earth-600);
+  --color-earth-700: var(--earth-700);
+  --color-earth-800: var(--earth-800);
+  --color-earth-900: var(--earth-900);
+  --color-accent: var(--accent);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

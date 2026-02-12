@@ -1,0 +1,131 @@
+// LBS Centre for Social and Agricultural Development - Prisma Schema
+// PostgreSQL (Neon) - UUID for IDs, indexed, production-ready
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============ AUTH ============
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("admin") // admin only for now
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@index([email])
+}
+
+// ============ CONTACT ============
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+
+  @@index([createdAt])
+}
+
+// ============ PROGRAMS ============
+model Program {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  description String    @db.Text
+  image       String?
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  projects Project[]
+
+  @@index([slug])
+  @@index([createdAt])
+}
+
+// ============ PROJECTS ============
+model Project {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  description String    @db.Text
+  location    String?
+  startDate   DateTime?
+  endDate     DateTime?
+  coverImage  String?
+  gallery     String[]  // array of image URLs
+  outcomes    String    @db.Text
+  programId   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  program Program?   @relation(fields: [programId], references: [id], onDelete: SetNull)
+  galleryItems GalleryImage[]
+
+  @@index([slug])
+  @@index([createdAt])
+  @@index([programId])
+}
+
+// ============ TRAINING ============
+model Training {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  location    String?
+  date        DateTime
+  category    String?
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  @@index([date])
+  @@index([createdAt])
+}
+
+// ============ PUBLICATIONS / RESEARCH ============
+model Publication {
+  id         String   @id @default(uuid())
+  title      String
+  description String  @db.Text
+  fileUrl    String
+  publishedAt DateTime
+  category   String?
+  coverImage String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  deletedAt  DateTime?
+
+  @@index([publishedAt])
+  @@index([createdAt])
+}
+
+// ============ GALLERY ============
+model GalleryImage {
+  id        String   @id @default(uuid())
+  imageUrl  String
+  caption   String?
+  projectId String?
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  @@index([projectId])
+  @@index([createdAt])
+}

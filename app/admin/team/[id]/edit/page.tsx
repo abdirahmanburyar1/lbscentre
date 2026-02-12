@@ -19,7 +19,7 @@ export default async function EditTeamMemberPage({ params }: Props) {
       </p>
 
       <form
-        action={updateTeamMemberForm}
+        action={updateTeamMemberForm as unknown as (formData: FormData) => Promise<void>}
         className="mt-6 max-w-xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
       >
         <input type="hidden" name="id" value={id} />

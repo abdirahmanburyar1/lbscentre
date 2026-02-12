@@ -32,7 +32,7 @@ export default async function AdminTeamPage({ searchParams }: Props) {
 
       {/* Add form */}
       <form
-        action={createTeamMember}
+        action={createTeamMember as unknown as (formData: FormData) => Promise<void>}
         className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
       >
         <h2 className="font-display text-lg font-semibold text-slate-900">Add team member</h2>

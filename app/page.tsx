@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { FocusAreasDiceCarousel } from "@/components/ui/FocusAreasDiceCarousel";
+import { FocusAreasSection } from "@/components/ui/FocusAreasSection";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import { VisionMissionValuesSection } from "@/components/ui/VisionMissionCard";
 import { getFeaturedProjects, getProjectCount } from "@/lib/queries/projects";
@@ -105,12 +105,12 @@ export default async function HomePage() {
       {/* Vision, Mission & Values - circular card design */}
       <VisionMissionValuesSection />
 
-      {/* Focus Areas - dice cards: first 5 + one "more" dice; section bg only */}
+      {/* Focus Areas - grid with icons */}
       <Section
         title="Focus Areas"
-        subtitle="Our work spans multiple sectors to create lasting impact. Click a card to see the next."
+        subtitle="Our work spans multiple sectors to create lasting impact."
       >
-        <FocusAreasDiceCarousel items={FOCUS_AREAS.slice(0, 5)} />
+        <FocusAreasSection items={FOCUS_AREAS} />
       </Section>
 
       {/* Featured Projects */}

@@ -8,7 +8,7 @@ export function LoginForm() {
 
   return (
     <form action={formAction} className="mt-6 space-y-4">
-      {state?.error?._form && (
+      {state?.error && "_form" in state.error && (
         <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">
           {state.error._form[0]}
         </p>
@@ -25,7 +25,7 @@ export function LoginForm() {
           autoComplete="email"
           className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900"
         />
-        {state?.error?.email && (
+        {state?.error && "email" in state.error && state.error.email?.[0] && (
           <p className="mt-1 text-sm text-red-600">{state.error.email[0]}</p>
         )}
       </div>
@@ -41,7 +41,7 @@ export function LoginForm() {
           autoComplete="current-password"
           className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900"
         />
-        {state?.error?.password && (
+        {state?.error && "password" in state.error && state.error.password?.[0] && (
           <p className="mt-1 text-sm text-red-600">{state.error.password[0]}</p>
         )}
       </div>

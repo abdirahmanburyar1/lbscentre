@@ -22,7 +22,10 @@ type ProjectFormProps = {
 
 export function ProjectForm({ action, programs, initial }: ProjectFormProps) {
   const [state, formAction] = useActionState(action, undefined);
-  const errors = state?.error as Record<string, string[] | undefined> | undefined;
+  const errors =
+    state && typeof state === "object" && "error" in state
+      ? (state as { error: Record<string, string[] | undefined> }).error
+      : undefined;
 
   return (
     <form action={formAction} className="mt-6 max-w-2xl space-y-4">

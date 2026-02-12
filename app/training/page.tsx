@@ -9,8 +9,8 @@ import type { Metadata } from "next";
 type Props = { searchParams: Promise<{ page?: string }> };
 
 export const metadata: Metadata = {
-  title: "Training",
-  description: "Capacity building and training programs by LBS Centre.",
+  title: "Training & Research",
+  description: "Capacity building, training and research by LBS Centre.",
 };
 
 export default async function TrainingPage({ searchParams }: Props) {
@@ -21,8 +21,8 @@ export default async function TrainingPage({ searchParams }: Props) {
   return (
     <>
       <PageHero
-        title="Training"
-        description="Capacity building and skill development for communities and partners."
+        title="Training & Research"
+        description="Capacity building, skill development and research for communities and partners."
       />
 
       <Section>

@@ -11,8 +11,8 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
   { href: "/projects", label: "Projects" },
-  { href: "/training", label: "Training" },
-  { href: "/publications", label: "Publications" },
+  { href: "/training", label: "Training & Research" },
+  { href: "/our-team", label: "Our Team" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
@@ -63,7 +63,7 @@ export function Navbar() {
               LBS Centre
             </span>
             <span className={`hidden truncate sm:block sm:text-sm ${useLightText ? "text-stone-200" : "text-[var(--logo-green-dark)]"}`}>
-              Social & Agricultural Development
+              For Social & Agricultural Development
             </span>
           </div>
         </Link>

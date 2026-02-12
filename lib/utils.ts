@@ -24,4 +24,5 @@ export const PAGINATION = {
   publications: 10,
   gallery: 12,
   admin: 10,
+  team: 10,
 } as const;

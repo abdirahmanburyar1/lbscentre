@@ -32,8 +32,8 @@ export default async function AdminLayout({
                 <Link href="/admin" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Dashboard</Link>
                 <Link href="/admin/projects" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Projects</Link>
                 <Link href="/admin/programs" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Programs</Link>
-                <Link href="/admin/trainings" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Training</Link>
-                <Link href="/admin/publications" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Publications</Link>
+                <Link href="/admin/trainings" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Training & Research</Link>
+                <Link href="/admin/team" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Our Team</Link>
                 <Link href="/admin/gallery" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Gallery</Link>
                 <Link href="/admin/messages" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Messages</Link>
                 <form action={logout} className="inline">

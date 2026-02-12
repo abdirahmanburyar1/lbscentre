@@ -17,7 +17,9 @@ async function main() {
       role: "admin",
     },
   });
-  console.log("Admin user created/updated:", email);
+  console.log("Admin credentials:");
+  console.log("  Email:", email);
+  console.log("  Password:", process.env.ADMIN_PASSWORD ? "[from ADMIN_PASSWORD]" : "admin123change (change this!)");
 }
 
 main()

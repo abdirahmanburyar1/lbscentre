@@ -7,21 +7,21 @@ export default async function AdminDashboardPage() {
   const session = await getSession();
   if (!session) redirect("/admin/login");
 
-  const [projectsCount, programsCount, messagesCount, trainingsCount, publicationsCount] =
+  const [projectsCount, programsCount, messagesCount, trainingsCount, galleryCount] =
     await Promise.all([
       prisma.project.count({ where: { deletedAt: null } }),
       prisma.program.count({ where: { deletedAt: null } }),
       prisma.contactMessage.count({ where: { deletedAt: null } }),
       prisma.training.count({ where: { deletedAt: null } }),
-      prisma.publication.count({ where: { deletedAt: null } }),
+      prisma.galleryImage.count({ where: { deletedAt: null } }),
     ]);
 
   const cards = [
     { title: "Projects", count: projectsCount, href: "/admin/projects" },
     { title: "Programs", count: programsCount, href: "/admin/programs" },
     { title: "Trainings", count: trainingsCount, href: "/admin/trainings" },
-    { title: "Publications", count: publicationsCount, href: "/admin/publications" },
-    { title: "Gallery", count: await prisma.galleryImage.count({ where: { deletedAt: null } }), href: "/admin/gallery" },
+    { title: "Our Team", count: await prisma.teamMember.count({ where: { deletedAt: null } }), href: "/admin/team" },
+    { title: "Gallery", count: galleryCount, href: "/admin/gallery" },
     { title: "Messages", count: messagesCount, href: "/admin/messages" },
   ];
 

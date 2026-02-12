@@ -115,6 +115,22 @@ model Publication {
   @@index([createdAt])
 }
 
+// ============ TEAM (Our Team) ============
+model TeamMember {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  bio       String?  @db.Text
+  image     String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@index([order])
+  @@index([createdAt])
+}
+
 // ============ GALLERY ============
 model GalleryImage {
   id        String   @id @default(uuid())

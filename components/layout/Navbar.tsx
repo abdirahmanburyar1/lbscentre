@@ -42,7 +42,7 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+      <nav className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
         <Link
           href="/"
           className="flex min-w-0 shrink-0 items-center gap-2 transition opacity-90 hover:opacity-100 sm:gap-3"

@@ -86,6 +86,29 @@ export default async function AdminTeamPage({ searchParams }: Props) {
             />
           </div>
         </div>
+        <div className="mt-4">
+          <p className="mb-2 text-sm font-medium text-slate-700">Social links (optional)</p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <input
+              name="linkedinUrl"
+              type="url"
+              placeholder="LinkedIn URL"
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+            <input
+              name="twitterUrl"
+              type="url"
+              placeholder="Twitter / X URL"
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+            <input
+              name="websiteUrl"
+              type="url"
+              placeholder="Website URL"
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+          </div>
+        </div>
         <button
           type="submit"
           className="mt-4 rounded-md bg-[var(--logo-green)] px-4 py-2 text-sm font-medium text-white hover:bg-[var(--logo-green-dark)]"

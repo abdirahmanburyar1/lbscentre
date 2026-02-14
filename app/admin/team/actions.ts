@@ -17,13 +17,16 @@ export async function createTeamMember(prevState: unknown, formData?: FormData) 
   const image = (fd.get("image") as string)?.trim() || null;
   const orderRaw = fd.get("order");
   const order = orderRaw != null ? parseInt(String(orderRaw), 10) : 0;
+  const linkedinUrl = (fd.get("linkedinUrl") as string)?.trim() || null;
+  const twitterUrl = (fd.get("twitterUrl") as string)?.trim() || null;
+  const websiteUrl = (fd.get("websiteUrl") as string)?.trim() || null;
 
   if (!name || !role) {
     return { error: { _form: ["Name and role are required."] } };
   }
 
   await prisma.teamMember.create({
-    data: { name, role, bio, image, order: Number.isNaN(order) ? 0 : order },
+    data: { name, role, bio, image, order: Number.isNaN(order) ? 0 : order, linkedinUrl, twitterUrl, websiteUrl },
   });
   revalidatePath("/our-team");
   revalidatePath("/admin/team");
@@ -42,6 +45,9 @@ export async function updateTeamMember(
   const image = (formData.get("image") as string)?.trim() || null;
   const orderRaw = formData.get("order");
   const order = orderRaw != null ? parseInt(String(orderRaw), 10) : 0;
+  const linkedinUrl = (formData.get("linkedinUrl") as string)?.trim() || null;
+  const twitterUrl = (formData.get("twitterUrl") as string)?.trim() || null;
+  const websiteUrl = (formData.get("websiteUrl") as string)?.trim() || null;
 
   if (!name || !role) {
     return { error: { _form: ["Name and role are required."] } };
@@ -49,7 +55,7 @@ export async function updateTeamMember(
 
   await prisma.teamMember.update({
     where: { id },
-    data: { name, role, bio, image, order: Number.isNaN(order) ? 0 : order },
+    data: { name, role, bio, image, order: Number.isNaN(order) ? 0 : order, linkedinUrl, twitterUrl, websiteUrl },
   });
   revalidatePath("/our-team");
   revalidatePath("/admin/team");

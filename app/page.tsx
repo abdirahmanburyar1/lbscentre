@@ -7,6 +7,8 @@ import { FocusAreasSection } from "@/components/ui/FocusAreasSection";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import { VisionMissionValuesSection } from "@/components/ui/VisionMissionCard";
 import { getFeaturedProjects, getProjectCount } from "@/lib/queries/projects";
+import { getPartners } from "@/lib/queries/partners";
+import { PartnersSection } from "@/components/ui/PartnersSection";
 
 const FOCUS_AREAS = [
   {
@@ -38,15 +40,16 @@ const FOCUS_AREAS = [
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featuredProjects, projectCount] = await Promise.all([
+  const [featuredProjects, projectCount, partners] = await Promise.all([
     getFeaturedProjects(3),
     getProjectCount(),
+    getPartners(),
   ]);
 
   return (
     <>
       {/* Hero - overlaps under fixed transparent navbar; scrolling images */}
-      <section className="relative -mt-[72px] min-h-[420px] overflow-hidden bg-[var(--logo-brown)] pt-[72px] sm:-mt-[80px] sm:min-h-[480px] sm:pt-[80px] lg:min-h-[520px]">
+      <section className="relative -mt-[92px] min-h-[420px] overflow-hidden bg-[var(--logo-brown)] pt-[92px] sm:-mt-[112px] sm:min-h-[480px] sm:pt-[112px] lg:min-h-[520px]">
         <HeroBackground />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(107,66,26,0.82)_0%,rgba(107,66,26,0.78)_50%,rgba(63,124,10,0.22)_100%)]" />
         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-16 sm:px-6 sm:py-24 lg:items-start lg:px-8 lg:py-32">
@@ -151,6 +154,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Partners Marquee */}
+      <PartnersSection partners={partners} />
 
       {/* Impact */}
       <Section title="Our Impact" subtitle="Numbers that reflect our commitment.">

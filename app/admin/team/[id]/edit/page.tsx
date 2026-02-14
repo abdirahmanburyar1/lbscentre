@@ -77,6 +77,32 @@ export default async function EditTeamMemberPage({ params }: Props) {
             />
           </div>
         </div>
+        <div className="mt-4">
+          <p className="mb-2 text-sm font-medium text-slate-700">Social links (optional)</p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <input
+              name="linkedinUrl"
+              type="url"
+              placeholder="LinkedIn URL"
+              defaultValue={member.linkedinUrl ?? ""}
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+            <input
+              name="twitterUrl"
+              type="url"
+              placeholder="Twitter / X URL"
+              defaultValue={member.twitterUrl ?? ""}
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+            <input
+              name="websiteUrl"
+              type="url"
+              placeholder="Website URL"
+              defaultValue={member.websiteUrl ?? ""}
+              className="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-[var(--logo-green)] focus:outline-none focus:ring-1 focus:ring-[var(--logo-green)]"
+            />
+          </div>
+        </div>
         <div className="mt-6 flex gap-3">
           <button
             type="submit"

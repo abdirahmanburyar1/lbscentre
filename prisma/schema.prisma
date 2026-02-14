@@ -117,31 +117,68 @@ model Publication {
 
 // ============ TEAM (Our Team) ============
 model TeamMember {
-  id        String   @id @default(uuid())
-  name      String
-  role      String
-  bio       String?  @db.Text
-  image     String?
-  order     Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
+  id          String   @id @default(uuid())
+  name        String
+  role        String
+  bio         String?  @db.Text
+  image       String?
+  order       Int      @default(0)
+  linkedinUrl String?
+  twitterUrl  String?
+  websiteUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
 
   @@index([order])
   @@index([createdAt])
 }
 
 // ============ GALLERY ============
+model GalleryEvent {
+  id          String   @id @default(uuid())
+  title       String
+  description String?  @db.Text
+  date        DateTime @default(now())
+  coverImage  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  images      GalleryImage[]
+
+  @@index([date])
+  @@index([createdAt])
+}
+
 model GalleryImage {
   id        String   @id @default(uuid())
   imageUrl  String
   caption   String?
   projectId String?
+  eventId   String?
   createdAt DateTime @default(now())
   deletedAt DateTime?
 
-  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  project Project?      @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  event   GalleryEvent? @relation(fields: [eventId], references: [id], onDelete: SetNull)
 
   @@index([projectId])
+  @@index([eventId])
+  @@index([createdAt])
+}
+
+// ============ PARTNERS ============
+model Partner {
+  id        String   @id @default(uuid())
+  name      String
+  logo      String
+  website   String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@index([order])
   @@index([createdAt])
 }

@@ -15,7 +15,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="flex-1 pt-[72px] sm:pt-[80px]">{children}</main>
+      <main className="flex-1 pt-[92px] sm:pt-[112px]">{children}</main>
       <Footer />
     </>
   );

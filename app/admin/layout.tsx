@@ -1,7 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
 import { getSession } from "@/lib/auth";
-import { logout } from "@/app/actions/auth";
+import { AdminSidebar } from "@/components/admin/AdminSidebar";
 
 export const dynamic = "force-dynamic";
 
@@ -13,43 +11,18 @@ export default async function AdminLayout({
   if (!session && !children) return null;
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-50">
       {session ? (
         <>
-          <header className="sticky top-0 z-40 border-b border-slate-200 bg-white">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-              <Link href="/admin" className="flex items-center gap-2">
-                <Image
-                  src="/lbscentre.png"
-                  alt="LBS Centre"
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 object-contain"
-                />
-                <span className="font-display text-lg font-bold text-slate-900">
-                  LBS Admin
-                </span>
-              </Link>
-              <nav className="flex items-center gap-1">
-                <Link href="/admin" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Dashboard</Link>
-                <Link href="/admin/projects" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Projects</Link>
-                <Link href="/admin/programs" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Programs</Link>
-                <Link href="/admin/trainings" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Training & Research</Link>
-                <Link href="/admin/team" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Our Team</Link>
-                <Link href="/admin/gallery" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Gallery</Link>
-                <Link href="/admin/messages" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">Messages</Link>
-                <form action={logout} className="inline">
-                  <button type="submit" className="rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900">
-                    Logout
-                  </button>
-                </form>
-              </nav>
-            </div>
-          </header>
-          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</div>
+          <AdminSidebar />
+          <main className="flex-1 overflow-y-auto w-full">
+             <div className="p-4 md:p-8 max-w-7xl mx-auto mt-16 md:mt-0">
+               {children}
+             </div>
+          </main>
         </>
       ) : (
-        <>{children}</>
+        <div className="flex-1">{children}</div>
       )}
     </div>
   );

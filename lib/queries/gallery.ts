@@ -1,41 +1,42 @@
 import { prisma } from "@/lib/db";
 import { PAGINATION } from "@/lib/utils";
-import type { Paginated } from "@/types";
 
-export async function getGalleryPaginated(page: number): Promise<
-  Paginated<Awaited<ReturnType<typeof getGalleryItems>>[0]>
-> {
+export async function getGalleryEventsPaginated(page: number) {
   const skip = (page - 1) * PAGINATION.gallery;
-  const where = { deletedAt: null };
+  
   const [items, total] = await Promise.all([
-    prisma.galleryImage.findMany({
-      where,
-      orderBy: { createdAt: "desc" },
+    prisma.galleryEvent.findMany({
+      where: { deletedAt: null },
+      orderBy: { date: "desc" },
       skip,
       take: PAGINATION.gallery,
-      include: { project: true },
+      include: {
+        images: {
+           where: { deletedAt: null },
+           take: 1, // Only need one to check/show if cover is missing, though we use coverImage field
+        }
+      }
     }),
-    prisma.galleryImage.count({ where }),
+    prisma.galleryEvent.count({ where: { deletedAt: null } }),
   ]);
-  const totalPages = Math.ceil(total / PAGINATION.gallery) || 1;
+
   return {
     items,
     total,
     page,
-    pageSize: PAGINATION.gallery,
-    totalPages,
-    hasNext: page < totalPages,
-    hasPrev: page > 1,
+    totalPages: Math.ceil(total / PAGINATION.gallery) || 1,
   };
 }
 
-export async function getGalleryItems(page: number) {
-  const skip = (page - 1) * PAGINATION.gallery;
-  return prisma.galleryImage.findMany({
-    where: { deletedAt: null },
-    orderBy: { createdAt: "desc" },
-    skip,
-    take: PAGINATION.gallery,
-    include: { project: true },
-  });
+export async function getGalleryEventBySlug(id: string) {
+    // Note: using ID not slug for now as per schema
+    return prisma.galleryEvent.findUnique({
+        where: { id },
+        include: {
+            images: {
+                where: { deletedAt: null },
+                orderBy: { createdAt: "asc" }
+            }
+        }
+    });
 }

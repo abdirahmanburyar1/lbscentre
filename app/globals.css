@@ -148,6 +148,14 @@ body {
   background: #94a3b8;
 }
 
+/* Custom styles for VisionMissionCard scrollbar to be subtle */
+.scrollbar-thumb-slate-200::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+}
+.scrollbar-thumb-slate-200::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
   .animate-fade-in-up,

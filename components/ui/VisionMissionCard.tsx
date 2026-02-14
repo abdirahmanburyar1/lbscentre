@@ -5,7 +5,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 
 type VisionMissionCardProps = {
   title: string;
-  description: string;
+  description: ReactNode;
   accentColor: string;
   icon: ReactNode;
 };
@@ -17,63 +17,88 @@ export function VisionMissionCard({
   icon,
 }: VisionMissionCardProps) {
   return (
-    <div className="group flex flex-col items-center transition-transform duration-300 ease-out hover:scale-[1.02]">
-      <div
-        className="relative flex h-80 w-80 flex-shrink-0 items-center justify-center sm:h-[22rem] sm:w-[22rem] lg:h-[26rem] lg:w-[26rem]"
-        style={
-          {
-            "--accent": accentColor,
-          } as React.CSSProperties
-        }
-      >
-        {/* Outer circle with colored arc (stroke) */}
-        <svg
-          className="absolute inset-0 h-full w-full -rotate-90 transition-opacity duration-300 ease-out"
-          viewBox="0 0 100 100"
-          aria-hidden
-        >
-          <circle
-            cx="50"
-            cy="50"
-            r="48"
-            fill="none"
-            stroke="var(--accent)"
-            strokeWidth="5"
-            strokeDasharray="140 162"
-            strokeLinecap="round"
-            className="transition-opacity duration-300 group-hover:opacity-90"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="48"
-            fill="none"
-            stroke="#e5e7eb"
-            strokeWidth="1.5"
-            className="transition-colors duration-300"
-          />
-        </svg>
-        {/* Inner white circle (content container) - content starts at top */}
-        <div className="relative flex h-64 w-64 flex-col items-center justify-start rounded-full border border-slate-200/80 bg-white pt-4 pb-6 pl-6 pr-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out sm:h-72 sm:w-72 sm:pt-5 sm:pb-8 sm:px-8 lg:h-80 lg:w-80 lg:pt-6 lg:pb-10 lg:px-10 group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
-          <div
-            className="mb-3 flex h-14 w-14 flex-shrink-0 items-center justify-center pt-[3px] sm:mb-4 sm:h-16 sm:w-16 lg:mb-5 lg:h-[4.25rem] lg:w-[4.25rem] [&_svg]:h-9 [&_svg]:w-9 sm:[&_svg]:h-10 sm:[&_svg]:w-10 lg:[&_svg]:h-11 lg:[&_svg]:w-11"
-            style={{ color: accentColor }}
-          >
-            {icon}
+    <div 
+      className="group relative flex h-full flex-col overflow-hidden bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      style={{ "--accent": accentColor } as React.CSSProperties}
+    >
+      {/* Top Rail (Stand Design) */}
+      <div className="h-3 w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-700 shadow-sm" />
+
+      {/* Main Content Area */}
+      <div className="relative flex flex-1 flex-col">
+        
+        {/* Graphic Header Section */}
+        <div className="relative h-48 w-full overflow-hidden">
+          {/* Right Side Pattern Background */}
+          <div className="absolute inset-0 bg-slate-50">
+             {/* Decorative Lines Pattern mimicking the reference */}
+             <svg className="absolute inset-0 h-full w-full opacity-20" width="100%" height="100%">
+                <pattern id="pattern-lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                   <line x1="0" y1="0" x2="0" y2="40" stroke="var(--accent)" strokeWidth="2" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#pattern-lines)" />
+             </svg>
           </div>
-          <h3 className="text-center text-xs font-bold uppercase tracking-widest text-slate-800 antialiased sm:text-sm md:text-base">
+
+          {/* Diagonal Shape / "Your Image" Area equivalent */}
+          <div 
+            className="absolute left-0 top-0 h-full w-[130%] bg-white shadow-lg"
+            style={{ 
+              clipPath: "polygon(0 0, 70% 0, 30% 100%, 0% 100%)",
+            }}
+          >
+             {/* Inner Accent Triangle */}
+             <div 
+                className="absolute inset-0 bg-[var(--accent)] opacity-10"
+             />
+          </div>
+
+          {/* Strong Accent Divider Line */}
+          <div 
+             className="absolute left-0 top-0 h-full w-[130%] pointer-events-none"
+             style={{ 
+               background: "transparent",
+               borderRight: "4px solid var(--accent)",
+               clipPath: "polygon(0 0, 70% 0, 30% 100%, 0% 100%)",
+             }}
+          />
+
+          {/* Icon Positioned nicely */}
+          <div className="absolute left-8 top-12 text-[var(--accent)]">
+             <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-md border-2 border-[var(--accent)]">
+                <div className="h-10 w-10 [&_svg]:h-full [&_svg]:w-full">
+                  {icon}
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* Text Content */}
+        <div className="flex flex-1 flex-col px-8 py-6 text-center sm:text-left">
+          <h3 className="mb-4 text-xl font-bold uppercase tracking-widest text-slate-900 relative inline-block self-center sm:self-start">
             {title}
+            <span className="absolute -bottom-2 left-0 h-1 w-12 bg-[var(--accent)] rounded-full"></span>
           </h3>
-          <p className="mt-2 line-clamp-5 text-center text-xs leading-relaxed text-slate-600 antialiased sm:mt-3 sm:text-sm sm:leading-relaxed md:mt-4 md:text-base md:leading-relaxed">
+          
+          <div className="mt-4 text-sm leading-relaxed text-slate-600">
             {description}
-          </p>
+          </div>
+        </div>
+
+        {/* Bottom Info Bar Style */}
+        <div className="mt-auto border-t border-slate-100 bg-slate-50 px-6 py-3">
+           <div className="flex justify-center items-center text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+              <span>LBS Centre</span>
+           </div>
         </div>
       </div>
-      {/* Subtle reflection */}
-      <div
-        className="mt-3 h-4 w-64 rounded-b-full bg-slate-200/30 blur-md transition-opacity duration-300 sm:w-72 lg:w-80"
-        aria-hidden
-      />
+
+      {/* Bottom Rail (Stand Design) */}
+      <div className="relative h-4 w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-700 shadow-md">
+         {/* Stand Feet simulation */}
+         <div className="absolute -bottom-1 left-8 h-1.5 w-8 rounded-full bg-slate-400/50 shadow-sm"></div>
+         <div className="absolute -bottom-1 right-8 h-1.5 w-8 rounded-full bg-slate-400/50 shadow-sm"></div>
+      </div>
     </div>
   );
 }
@@ -124,21 +149,31 @@ const VISION_MISSION_VALUES = [
   {
     title: "Vision",
     description:
-      "A Somalia where every community has access to food security, sustainable livelihoods, and resilience to climate and conflict.",
+      "To ensure food security in Somalia, LBS Centre aims to develop sustainable agriculture.",
     accentColor: "var(--logo-green)",
     icon: <IconVision />,
   },
   {
     title: "Mission",
-    description:
-      "To strengthen social and agricultural development through evidence-based programs, capacity building, and partnerships that empower communities and promote inclusive growth.",
+    description: (
+      <ul className="list-none space-y-3 text-left">
+        <li className="flex gap-3">
+          <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
+          <span>To conduct a series of Agricultural Development projects designed to achieve self-sufficiency and provide healthy, safe, and affordable food to everyone.</span>
+        </li>
+        <li className="flex gap-3">
+           <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
+           <span>To engage extensively on a multi-faceted Sustainable Development and Climate Change Action-related activities that would help bridge the poverty gap, mitigate Climate Change and empower the youth.</span>
+        </li>
+      </ul>
+    ),
     accentColor: "var(--logo-brown)",
     icon: <IconMission />,
   },
   {
     title: "Values",
     description:
-      "Integrity, community participation, evidence-based action, and partnership. We are accountable to the people we serve and committed to sustainable, inclusive development.",
+      "Integrity, community participation, evidence-based action, and partnership. We are accountable to the community we serve and committed to sustainable and inclusive development.",
     accentColor: "var(--logo-yellow)",
     icon: <IconValues />,
   },
@@ -146,11 +181,11 @@ const VISION_MISSION_VALUES = [
 
 export function VisionMissionValuesSection() {
   return (
-    <section className="border-y border-slate-200/80 bg-white py-16 sm:py-20 md:py-28 lg:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+    <section className="bg-slate-100 py-16 sm:py-20 md:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {VISION_MISSION_VALUES.map((item, i) => (
-            <AnimateIn key={item.title} animation="fade-in-up" delay={i === 0 ? 0 : i === 1 ? 100 : 200}>
+            <AnimateIn key={item.title} animation="fade-in-up" delay={i === 0 ? 0 : i === 1 ? 100 : 200} className="h-full">
               <VisionMissionCard
                 title={item.title}
                 description={item.description}

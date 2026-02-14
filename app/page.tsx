@@ -6,6 +6,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { FocusAreasSection } from "@/components/ui/FocusAreasSection";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import { VisionMissionValuesSection } from "@/components/ui/VisionMissionCard";
+import { WelcomeSection } from "@/components/ui/WelcomeSection";
 import { getFeaturedProjects, getProjectCount } from "@/lib/queries/projects";
 import { getPartners } from "@/lib/queries/partners";
 import { PartnersSection } from "@/components/ui/PartnersSection";
@@ -104,6 +105,9 @@ export default async function HomePage() {
           </AnimateIn>
         </div>
       </Section>
+
+      {/* Welcome / Co-founder Message */}
+      <WelcomeSection />
 
       {/* Vision, Mission & Values - circular card design */}
       <VisionMissionValuesSection />

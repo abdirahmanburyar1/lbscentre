@@ -1,56 +1,89 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const FOOTER_LINKS = [
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
+  { href: "/our-team", label: "Our Team" },
   { href: "/programs", label: "Programs" },
   { href: "/projects", label: "Projects" },
   { href: "/training", label: "Training & Research" },
-  { href: "/our-team", label: "Our Team" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
+const PROGRAM_LINKS = [
+  { href: "/programs/agriculture", label: "Sustainable Agriculture" },
+  { href: "/programs/food-security", label: "Food Security" },
+  { href: "/programs/wash", label: "WASH Interventions" },
+  { href: "/programs/climate", label: "Climate Resilience" },
+];
+
 export function Footer() {
   const year = new Date().getFullYear();
+  
   return (
-    <footer className="border-t border-[var(--logo-green-dark)]/30 bg-[var(--logo-brown)] text-stone-200">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-2 ring-white/20">
+    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800">
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-4 lg:gap-8">
+          
+          {/* Brand & Intro */}
+          <div className="lg:col-span-1 space-y-6">
+            <Link href="/" className="inline-flex items-center gap-5 group">
+              <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-lg ring-2 ring-white/10 transition-transform group-hover:scale-105">
                 <Image
                   src="/lbscentre.png"
-                  alt="LBS Centre for Social & Agricultural Development"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 object-contain"
+                  alt="LBS Centre Logo"
+                  width={80}
+                  height={80}
+                  className="object-contain"
                 />
               </span>
-              <span className="font-display text-base font-semibold text-white">
-                LBS Centre
-              </span>
+              <div className="flex flex-col gap-1">
+                <span className="font-display text-3xl font-bold text-white tracking-tight leading-none">
+                  LBS Centre
+                </span>
+                <span className="text-xs uppercase tracking-wider text-[var(--logo-green)] font-bold leading-tight">
+                  For Social &<br /> Agricultural Dev.
+                </span>
+              </div>
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-stone-400">
-              For Social & Agricultural Development
+            <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
+              Empowering communities in Somalia through sustainable agriculture, food security, and resilience building initiatives since our inception.
             </p>
-            <p className="mt-1 text-xs text-stone-500">LNGO – Somalia</p>
+            <div className="flex gap-4">
+              {[
+                { Icon: Twitter, href: "#", label: "Twitter" },
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Instagram, href: "#", label: "Instagram" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-[var(--logo-green)] hover:text-white"
+                  aria-label={label}
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-[var(--logo-yellow)]">
+          <div className="lg:col-span-1">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2">
+              <span className="h-1 w-6 bg-[var(--logo-yellow)] rounded-full"></span>
               Quick Links
             </h3>
-            <ul className="mt-4 space-y-1.5">
+            <ul className="space-y-3">
               {FOOTER_LINKS.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="block text-sm transition hover:text-[var(--logo-yellow)] focus:text-[var(--logo-yellow)] focus:outline-none"
+                    className="text-sm hover:text-[var(--logo-yellow)] transition-colors inline-flex items-center gap-2 group"
                   >
+                    <span className="h-1 w-1 rounded-full bg-slate-600 transition-colors group-hover:bg-[var(--logo-yellow)]"></span>
                     {label}
                   </Link>
                 </li>
@@ -58,26 +91,65 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-[var(--logo-yellow)]">
-              Get in Touch
+          {/* Programs */}
+          <div className="lg:col-span-1">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2">
+              <span className="h-1 w-6 bg-[var(--logo-green)] rounded-full"></span>
+              Our Focus
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-stone-400">
-              Partner with us, support our programs, or learn more about our work.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-block rounded-lg border border-[var(--logo-yellow)]/60 px-4 py-2.5 text-sm font-medium text-[var(--logo-yellow)] transition hover:bg-[var(--logo-yellow)]/10 hover:border-[var(--logo-yellow)]"
-            >
+            <ul className="space-y-3">
+              {PROGRAM_LINKS.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm hover:text-[var(--logo-green)] transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-slate-600 transition-colors group-hover:bg-[var(--logo-green)]"></span>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="lg:col-span-1">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2">
+              <span className="h-1 w-6 bg-[var(--logo-green-dark)] rounded-full"></span>
               Contact Us
-            </Link>
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-[var(--logo-green)] shrink-0 mt-0.5" />
+                <span className="text-sm text-slate-400">
+                  Mogadishu, Somalia<br />
+                  KM4 Area, Hodan District
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-[var(--logo-green)] shrink-0" />
+                <a href="tel:+25261xxxxxxx" className="text-sm text-slate-400 hover:text-white transition-colors">
+                  +252 61 XXX XXXX
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-[var(--logo-green)] shrink-0" />
+                <a href="mailto:info@lbscentre.org" className="text-sm text-slate-400 hover:text-white transition-colors">
+                  info@lbscentre.org
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-10 border-t border-[var(--logo-brown-light)]/50 pt-6 text-center text-xs text-stone-500 sm:mt-12 sm:pt-8 sm:text-sm">
-          © {year} LBS Centre for Social & Agricultural Development. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <p>© {year} LBS Centre for Social & Agricultural Development. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/admin/login" className="hover:text-white transition-colors">Admin Login</Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 import { PAGINATION } from "@/lib/utils";
 import { AdminPagination } from "@/components/admin/AdminPagination";
 import { ImageKitUploadField } from "@/components/admin/ImageKitUploadField";
-import { createTeamMember } from "./actions";
+import { createTeamMember, deleteTeamMember } from "./actions";
 
 type Props = { searchParams: Promise<{ page?: string }> };
 
@@ -146,12 +146,26 @@ export default async function AdminTeamPage({ searchParams }: Props) {
                 <td className="px-4 py-3 text-slate-600">{m.role}</td>
                 <td className="px-4 py-3 text-slate-600">{m.order}</td>
                 <td className="px-4 py-3 text-right">
-                  <Link
-                    href={`/admin/team/${m.id}/edit`}
-                    className="text-sm text-[var(--logo-green)] hover:underline"
-                  >
-                    Edit
-                  </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <Link
+                      href={`/admin/team/${m.id}/edit`}
+                      className="text-sm text-[var(--logo-green)] hover:underline"
+                    >
+                      Edit
+                    </Link>
+                    <form action={deleteTeamMember} className="inline">
+                      <input type="hidden" name="id" value={m.id} />
+                      <button
+                        type="submit"
+                        className="text-sm text-red-600 hover:underline"
+                        onClick={(e) => {
+                          if (!confirm("Delete this team member?")) e.preventDefault();
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
                 </td>
               </tr>
             ))}

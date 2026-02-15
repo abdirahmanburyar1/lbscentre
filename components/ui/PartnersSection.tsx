@@ -22,19 +22,16 @@ export function PartnersSection({ partners }: { partners: Partner[] }) {
         </p>
       </div>
 
-      <div className="mb-6 text-center px-4">
-        <h3 className="text-xl font-semibold font-display text-slate-800 sm:text-2xl">
-          Our Partners
-        </h3>
-      </div>
-
-      {/* Partner logos - scrollable when many, centered when few */}
-      <div className="w-full overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
-        <div className="flex w-max min-w-full items-center px-4 md:justify-center gap-8 sm:gap-12 mx-auto">
-          {partners.length === 0 ? (
-            <p className="text-slate-500 text-sm py-4">Partner logos will appear here.</p>
-          ) : (
-            partners.map((partner) => (
+      {partners.length > 0 && (
+        <>
+          <div className="mb-6 text-center px-4">
+            <h3 className="text-xl font-semibold font-display text-slate-800 sm:text-2xl">
+              Our Partners
+            </h3>
+          </div>
+          <div className="w-full overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
+            <div className="flex w-max min-w-full items-center px-4 md:justify-center gap-8 sm:gap-12 mx-auto">
+              {partners.map((partner) => (
               <div key={partner.id} className="flex flex-col items-center justify-center space-y-3 shrink-0 snap-center group w-48 sm:w-64">
                 <div className="relative h-24 w-full sm:h-32 transition-transform duration-300 group-hover:scale-105">
                   {partner.website ? (
@@ -59,10 +56,11 @@ export function PartnersSection({ partners }: { partners: Partner[] }) {
                   {partner.name}
                 </p>
               </div>
-            ))
-          )}
-        </div>
-      </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 }

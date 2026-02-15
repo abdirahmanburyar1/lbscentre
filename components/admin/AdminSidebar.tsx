@@ -23,7 +23,7 @@ const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/projects", label: "Projects", icon: FolderKanban },
   { href: "/admin/programs", label: "Programs", icon: Layers },
-  { href: "/admin/trainings", label: "Training & Research", icon: GraduationCap },
+  { href: "/admin/trainings", label: "Research & Training", icon: GraduationCap },
   { href: "/admin/team", label: "Our Team", icon: Users },
   { href: "/admin/partners", label: "Partners", icon: Handshake },
   { href: "/admin/gallery", label: "Gallery", icon: ImageIcon },

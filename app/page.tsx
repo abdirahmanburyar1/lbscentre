@@ -29,7 +29,7 @@ const FOCUS_AREAS = [
     description: "Building community resilience to climate shocks.",
   },
   {
-    title: "Training & Research",
+    title: "Research & Training",
     description: "Capacity building, skills development, and research for agricultural advancement.",
   },
   {
@@ -76,7 +76,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Who We Are - one row: single image (3.jpg) + text side by side */}
+      {/* Who We Are - one row: image + text side by side */}
       <Section
         title="Who We Are"
         subtitle="A brief introduction to our mission and work."
@@ -86,7 +86,7 @@ export default async function HomePage() {
             <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border border-slate-200 shadow-md lg:max-w-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/3.jpg"
+                  src="/images/whoweare.jpg"
                   alt=""
                   fill
                   className="object-cover"

@@ -11,8 +11,8 @@ export const dynamic = "force-dynamic";
 type Props = { searchParams: Promise<{ page?: string }> };
 
 export const metadata: Metadata = {
-  title: "Training & Research",
-  description: "Capacity building, training and research by LBS Centre.",
+  title: "Research & Training",
+  description: "Capacity building, research and training by LBS Centre.",
 };
 
 export default async function TrainingPage({ searchParams }: Props) {
@@ -23,7 +23,7 @@ export default async function TrainingPage({ searchParams }: Props) {
   return (
     <>
       <PageHero
-        title="Training & Research"
+        title="Research & Training"
         description="Capacity building, skill development and research for communities and partners."
       />
 

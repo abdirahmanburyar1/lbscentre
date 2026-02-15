@@ -98,8 +98,12 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-[var(--logo-green)] shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-400">
-                  Makka Al Mukarama Road, Taleh junction.
-                  <br />
+                  Makka Al Mukarama Road, Taleh junction, Mogadishu.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-[var(--logo-green)] shrink-0 mt-0.5" />
+                <span className="text-sm text-slate-400">
                   Global Road, Garowe, Pl-Somalia
                 </span>
               </li>

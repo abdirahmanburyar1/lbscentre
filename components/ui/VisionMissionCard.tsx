@@ -149,7 +149,7 @@ const VISION_MISSION_VALUES = [
   {
     title: "Vision",
     description:
-      "Our 10-year vision is to transform Somali Agriculture through innovative solutions, Research, capacity building, market-driven solutions and strategic partnerships.",
+      "To transform Somali Agriculture through innovative solutions, Research, capacity building, market-driven solutions and strategic partnerships.",
     accentColor: "var(--logo-green)",
     icon: <IconVision />,
   },

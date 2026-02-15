@@ -26,17 +26,25 @@ export default function ContactPage() {
           <div className="min-w-0">
             <h2 className="font-display text-lg font-semibold text-slate-900 sm:text-xl">Get in Touch</h2>
             <p className="mt-4 text-slate-600">
-              LBS Centre for Social & Agricultural Development (LNGO – Somalia)
+              LBS Centre for Social & Agricultural Development
             </p>
-            <ul className="mt-6 space-y-3 text-slate-600">
+            <ul className="mt-6 space-y-4 text-slate-600">
               <li>
-                <strong className="text-slate-800">Address:</strong> Somalia (details can be updated in admin/content)
+                <strong className="text-slate-800 block mb-1">Address</strong>
+                Makka Al Mukarama Road, Taleh junction. first<br />
+                Global Road, Garowe, Pl-Somalia
               </li>
               <li>
-                <strong className="text-slate-800">Email:</strong> Use the contact form to send us an email.
+                <strong className="text-slate-800 block mb-1">WhatsApp</strong>
+                <a href="https://wa.me/252907747138" target="_blank" rel="noopener noreferrer" className="text-[var(--logo-green-dark)] hover:underline">
+                  +252 907 747 138
+                </a>
               </li>
               <li>
-                <strong className="text-slate-800">Phone:</strong> (Update in content/CMS as needed)
+                <strong className="text-slate-800 block mb-1">Email</strong>
+                <a href="mailto:Info@lbscentre.net" className="text-[var(--logo-green-dark)] hover:underline">
+                  Info@lbscentre.net
+                </a>
               </li>
             </ul>
           </div>

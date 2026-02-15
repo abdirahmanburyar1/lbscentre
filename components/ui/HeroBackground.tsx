@@ -8,12 +8,13 @@ export function HeroBackground() {
         muted
         loop
         playsInline
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover brightness-110"
         poster="/images/1.jpg" // Fallback image while loading
       >
-        <source src="https://ik.imagekit.io/l3fsh0tdro/wallpaper%20(1).mp4" type="video/mp4" />
+        <source src="https://ik.imagekit.io/l3fsh0tdro/snapsave-app_924251870137100_hd.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className="absolute inset-0 bg-white/15 pointer-events-none" aria-hidden />
     </div>
   );
 }

@@ -48,13 +48,13 @@ export function Navbar() {
           className="flex min-w-0 shrink-0 items-center gap-2 transition opacity-90 hover:opacity-100 sm:gap-3"
           aria-label="LBS Centre for Social & Agricultural Development - Home"
         >
-          <span className={`flex shrink-0 items-center justify-center rounded-xl p-1.5 shadow-md ${useLightText ? "bg-white" : "bg-transparent"}`}>
+          <span className={`flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full p-1.5 shadow-md sm:h-16 sm:w-16 ${useLightText ? "bg-white" : "bg-transparent"}`}>
             <Image
               src="/lbscentre.png"
               alt="LBS Centre for Social & Agricultural Development"
-              width={56}
-              height={56}
-              className="h-12 w-12 object-contain sm:h-14 sm:w-14"
+              width={64}
+              height={64}
+              className="h-full w-full object-contain"
               priority
             />
           </span>

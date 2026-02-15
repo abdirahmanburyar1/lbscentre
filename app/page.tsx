@@ -29,12 +29,12 @@ const FOCUS_AREAS = [
     description: "Building community resilience to climate shocks.",
   },
   {
-    title: "WASH Interventions",
-    description: "Water, sanitation, and hygiene for healthier communities.",
+    title: "Training & Research",
+    description: "Capacity building, skills development, and research for agricultural advancement.",
   },
   {
-    title: "Gender & Youth Empowerment",
-    description: "Inclusive programs for women and young people.",
+    title: "Advisory Services",
+    description: "Strategic support for planning, implementation, and impact assessments.",
   },
 ];
 
@@ -58,9 +58,6 @@ export default async function HomePage() {
             <h1 className="font-display text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl lg:leading-tight break-words">
               LBS Centre for Social & Agricultural Development
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-stone-200 sm:mt-6 sm:text-lg">
-              Building resilient communities through food security, sustainable agriculture, and inclusive development.
-            </p>
             <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link
                 href="/about"
@@ -101,7 +98,7 @@ export default async function HomePage() {
           <AnimateIn animation="fade-in-up" delay={100}>
             <div className="text-base leading-relaxed text-slate-600 sm:text-lg lg:text-left">
               <p className="mb-4">
-                Established in 2024, LBS Centre for Social & Agricultural Development is a Somali NNGO and think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community’s resilience to climate change.
+                Established in 2024, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community’s resilience to climate change.
               </p>
               <p>
                 The LBS Centre will help develop Somalia’s commercial agriculture sector by increasing water availability, agricultural productivity, supporting agribusinesses and improving agricultural research and technology.
@@ -124,20 +121,6 @@ export default async function HomePage() {
       >
         <FocusAreasSection items={FOCUS_AREAS} />
       </Section>
-
-      {/* Advisory Services */}
-      <section className="border-t border-slate-200 bg-white py-12 sm:py-16 md:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <AnimateIn animation="fade-in-up">
-            <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-              Advisory Services
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
-              With over 20 experts dedicated to transforming agri-food systems, LBS Centre also extends its rich knowledge and insights through advisory and consultancy services. These services include support for planning and implementation, research and youth training, monitoring & evaluation, and impact assessments.
-            </p>
-          </AnimateIn>
-        </div>
-      </section>
 
       {/* Featured Projects */}
       <section className="border-t border-slate-200 bg-slate-50/50 py-12 sm:py-16 md:py-24 lg:py-28">

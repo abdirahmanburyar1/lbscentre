@@ -8,8 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Programs",
-  description:
-    "Our program areas: Food Security & Nutrition, Sustainable Agriculture, Livestock & Agribusiness, Climate Change Resilience, WASH, Gender & Youth Empowerment.",
+  description: ""
 };
 
 export default async function ProgramsPage() {

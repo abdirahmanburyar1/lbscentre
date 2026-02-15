@@ -18,7 +18,7 @@ export default function AboutPage() {
 
       <Section title="Background" containerClassName="max-w-3xl">
         <p className="text-slate-600 leading-relaxed">
-          LBS Centre for Social & Agricultural Development is a local non-governmental organization (LNGO) operating in Somalia. We focus on strengthening communities through integrated programs in food security, sustainable agriculture, livestock, climate resilience, WASH, and youth and gender empowerment.
+          Established in 2024, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community&apos;s resilience to climate change.
         </p>
       </Section>
 
@@ -73,32 +73,9 @@ export default function AboutPage() {
               <h3 className="font-display text-xl font-bold text-[var(--logo-green-dark)] mb-5">
                 Goals
               </h3>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Improve food security and nutrition outcomes in target communities</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Promote sustainable agriculture and natural resource management</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Strengthen livelihoods and agribusiness opportunities</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Build resilience to climate change and shocks</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Enhance access to water, sanitation, and hygiene</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
-                  <span>Advance gender equality and youth empowerment</span>
-                </li>
-              </ul>
+              <p className="text-slate-600 leading-relaxed">
+                Our goal is to create a resilient community after 10 years of development period.
+              </p>
             </div>
           </div>
 
@@ -112,23 +89,27 @@ export default function AboutPage() {
               <ul className="space-y-3 text-slate-600">
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Deliver high-impact, scalable programs aligned with national and local priorities</span>
+                  <span>Improve food security and nutrition outcomes in target communities</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Build capacity of local institutions and community groups</span>
+                  <span>Promote sustainable agriculture and natural resource management</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Generate and use evidence for learning and program improvement</span>
+                  <span>Strengthen livelihoods and agribusiness opportunities</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Foster partnerships with government, NGOs, and private sector</span>
+                  <span>Build resilience to climate change and shocks</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Ensure accountability to beneficiaries and donors</span>
+                  <span>Enhance access to water, sanitation, and hygiene</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Advance gender equality and youth empowerment</span>
                 </li>
               </ul>
             </div>

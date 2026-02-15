@@ -78,18 +78,13 @@ const ICONS = [
   <IconGenderYouth key="gender" />,
 ];
 
-function slug(title: string) {
-  return title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
-}
-
 export function FocusAreasSection({ items }: FocusAreasSectionProps) {
   return (
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((area, i) => (
           <AnimateIn key={area.title} animation="fade-in-up" delay={i % 3 === 0 ? 0 : i % 3 === 1 ? 100 : 200}>
-            <Link
-              href={`/programs#${slug(area.title)}`}
+            <div
               className="group flex flex-col rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-[var(--logo-green)]/50 hover:shadow-lg sm:p-8"
             >
               <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--logo-brown-bg)] text-[var(--logo-green-dark)] transition group-hover:bg-[var(--logo-green)]/15 group-hover:text-[var(--logo-green-dark)]">
@@ -101,10 +96,7 @@ export function FocusAreasSection({ items }: FocusAreasSectionProps) {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
                 {area.description}
               </p>
-              <span className="mt-4 inline-block text-sm font-semibold text-[var(--logo-green-dark)] group-hover:underline">
-                Learn more →
-              </span>
-            </Link>
+            </div>
           </AnimateIn>
         ))}
       </div>

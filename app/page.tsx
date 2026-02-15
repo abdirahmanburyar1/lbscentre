@@ -99,9 +99,14 @@ export default async function HomePage() {
             </div>
           </AnimateIn>
           <AnimateIn animation="fade-in-up" delay={100}>
-            <p className="text-center text-lg leading-relaxed text-slate-600 lg:text-left">
-              LBS Centre for Social & Agricultural Development (LNGO – Somalia) works to improve livelihoods and build resilience in communities through integrated programs in agriculture, nutrition, WASH, and youth empowerment. We partner with local stakeholders to deliver sustainable, impact-driven solutions.
-            </p>
+            <div className="text-base leading-relaxed text-slate-600 sm:text-lg lg:text-left">
+              <p className="mb-4">
+                Established in 2024, LBS Centre for Social & Agricultural Development is a Somali NNGO and think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community’s resilience to climate change.
+              </p>
+              <p>
+                The LBS Centre will help develop Somalia’s commercial agriculture sector by increasing water availability, agricultural productivity, supporting agribusinesses and improving agricultural research and technology.
+              </p>
+            </div>
           </AnimateIn>
         </div>
       </Section>
@@ -119,6 +124,20 @@ export default async function HomePage() {
       >
         <FocusAreasSection items={FOCUS_AREAS} />
       </Section>
+
+      {/* Advisory Services */}
+      <section className="border-t border-slate-200 bg-white py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <AnimateIn animation="fade-in-up">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+              Advisory Services
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+              With over 20 experts dedicated to transforming agri-food systems, LBS Centre also extends its rich knowledge and insights through advisory and consultancy services. These services include support for planning and implementation, research and youth training, monitoring & evaluation, and impact assessments.
+            </p>
+          </AnimateIn>
+        </div>
+      </section>
 
       {/* Featured Projects */}
       <section className="border-t border-slate-200 bg-slate-50/50 py-12 sm:py-16 md:py-24 lg:py-28">

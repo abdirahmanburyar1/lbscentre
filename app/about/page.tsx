@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Background, history, structure, vision, mission, goals and objectives of LBS Centre for Social & Agricultural Development.",
+    "Background, history, structure, goals and objectives of LBS Centre for Social & Agricultural Development.",
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About LBS Centre"
-        description="Our background, structure, vision, and mission."
+        description="Our background, structure, goals and objectives."
       />
 
       <Section title="Background" containerClassName="max-w-3xl">
@@ -34,43 +34,106 @@ export default function AboutPage() {
         </p>
       </Section>
 
-      <Section title="Management Structure" className="bg-white" containerClassName="max-w-3xl">
-        <p className="text-slate-600 leading-relaxed">
-          Leadership is provided by an experienced management team with expertise in agriculture, development, and humanitarian response. Day-to-day operations are led by a Country Director, with program managers responsible for each thematic area. Governance and strategic direction are provided by a board committed to our mission.
-        </p>
+      <Section title="Management Structure" className="bg-white" containerClassName="max-w-5xl">
+        <div className="grid gap-10 md:grid-cols-2">
+          {/* Board of Trustees */}
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[var(--logo-brown)]/30">
+            <div className="absolute left-0 top-0 h-full w-1.5 bg-[var(--logo-brown)] rounded-r-full" />
+            <div className="pl-4">
+              <h3 className="font-display text-xl font-bold text-[var(--logo-brown)] mb-3">
+                Board of Trustees
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                LBS Centre&apos;s Board of Trustees brings experience and insight to drive mission-focused governance.
+              </p>
+            </div>
+          </div>
+
+          {/* Leadership Team */}
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[var(--logo-green)]/40">
+            <div className="absolute left-0 top-0 h-full w-1.5 bg-[var(--logo-green)] rounded-r-full" />
+            <div className="pl-4">
+              <h3 className="font-display text-xl font-bold text-[var(--logo-green-dark)] mb-3">
+                Leadership Team of LBS
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                The Team brings together dynamic leaders from across Economic development, Agriculture, environmental science, research and corporate services, working tirelessly to drive the Centre&apos;s everyday operations.
+              </p>
+            </div>
+          </div>
+        </div>
       </Section>
 
-      <Section title="Vision" containerClassName="max-w-3xl">
-        <p className="text-slate-600 leading-relaxed text-lg">
-          A Somalia where every community has access to food security, sustainable livelihoods, and resilience to climate and conflict.
-        </p>
-      </Section>
+      <Section title="Goals & Objectives" className="bg-white" containerClassName="max-w-5xl">
+        <div className="grid gap-10 md:grid-cols-2">
+          {/* Goals */}
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[var(--logo-green)]/40">
+            <div className="absolute left-0 top-0 h-full w-1.5 bg-[var(--logo-green)] rounded-r-full" />
+            <div className="pl-4">
+              <h3 className="font-display text-xl font-bold text-[var(--logo-green-dark)] mb-5">
+                Goals
+              </h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Improve food security and nutrition outcomes in target communities</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Promote sustainable agriculture and natural resource management</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Strengthen livelihoods and agribusiness opportunities</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Build resilience to climate change and shocks</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Enhance access to water, sanitation, and hygiene</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-green)]" />
+                  <span>Advance gender equality and youth empowerment</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-      <Section title="Mission" className="bg-white" containerClassName="max-w-3xl">
-        <p className="text-slate-600 leading-relaxed text-lg">
-          To strengthen social and agricultural development through evidence-based programs, capacity building, and partnerships that empower communities and promote inclusive growth.
-        </p>
-      </Section>
-
-      <Section title="Goals" containerClassName="max-w-3xl">
-        <ul className="list-disc list-inside space-y-2 text-slate-600">
-          <li>Improve food security and nutrition outcomes in target communities</li>
-          <li>Promote sustainable agriculture and natural resource management</li>
-          <li>Strengthen livelihoods and agribusiness opportunities</li>
-          <li>Build resilience to climate change and shocks</li>
-          <li>Enhance access to water, sanitation, and hygiene</li>
-          <li>Advance gender equality and youth empowerment</li>
-        </ul>
-      </Section>
-
-      <Section title="Objectives" className="bg-white" containerClassName="max-w-3xl">
-        <ul className="list-disc list-inside space-y-2 text-slate-600">
-          <li>Deliver high-impact, scalable programs aligned with national and local priorities</li>
-          <li>Build capacity of local institutions and community groups</li>
-          <li>Generate and use evidence for learning and program improvement</li>
-          <li>Foster partnerships with government, NGOs, and private sector</li>
-          <li>Ensure accountability to beneficiaries and donors</li>
-        </ul>
+          {/* Objectives */}
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[var(--logo-brown)]/30">
+            <div className="absolute left-0 top-0 h-full w-1.5 bg-[var(--logo-brown)] rounded-r-full" />
+            <div className="pl-4">
+              <h3 className="font-display text-xl font-bold text-[var(--logo-brown)] mb-5">
+                Objectives
+              </h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Deliver high-impact, scalable programs aligned with national and local priorities</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Build capacity of local institutions and community groups</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Generate and use evidence for learning and program improvement</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Foster partnerships with government, NGOs, and private sector</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Ensure accountability to beneficiaries and donors</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </Section>
     </>
   );

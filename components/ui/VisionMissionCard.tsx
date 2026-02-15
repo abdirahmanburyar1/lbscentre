@@ -149,7 +149,7 @@ const VISION_MISSION_VALUES = [
   {
     title: "Vision",
     description:
-      "To ensure food security in Somalia, LBS Centre aims to develop sustainable agriculture.",
+      "Our 10-year vision is to transform Somali Agriculture through innovative solutions, Research, capacity building, market-driven solutions and strategic partnerships.",
     accentColor: "var(--logo-green)",
     icon: <IconVision />,
   },
@@ -159,11 +159,15 @@ const VISION_MISSION_VALUES = [
       <ul className="list-none space-y-3 text-left">
         <li className="flex gap-3">
           <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
+          <span>To support initiatives that promote ecological farming and food sovereignty.</span>
+        </li>
+        <li className="flex gap-3">
+          <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
           <span>To conduct a series of Agricultural Development projects designed to achieve self-sufficiency and provide healthy, safe, and affordable food to everyone.</span>
         </li>
         <li className="flex gap-3">
-           <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
-           <span>To engage extensively on a multi-faceted Sustainable Development and Climate Change Action-related activities that would help bridge the poverty gap, mitigate Climate Change and empower the youth.</span>
+          <span className="text-[var(--logo-brown)] font-bold text-lg leading-none">·</span>
+          <span>To engage extensively on multi-faceted Sustainable Development and Climate Change Action-related activities that would help bridge the poverty gap, mitigate Climate Change and empower the youth.</span>
         </li>
       </ul>
     ),

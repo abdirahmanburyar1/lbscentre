@@ -40,7 +40,7 @@ export function WelcomeSection() {
                   Our vision was to develop a sustainable community by working with partners, donors, and the government agencies to build climate resilience, and strengthen local economies.
                 </p>
                 <p>
-                  As a Co-founder, despite the many challenges we are faced with as a not-for-profit organization, the vision still remains clear in sight and we continually do our best to ensure the implementation of a significant development program which focuses on sustainable phenomenal results.
+                  As a Co-founder, despite the many challenges we are faced with as a non-governmental institution, the vision still remains clear in sight and we continually do our best to ensure the implementation of a significant development program which focuses on sustainable phenomenal results.
                 </p>
                 <p>
                   We can already document great results in this very short period of our existence, thanks to those that have taken part. We have a “One Team” attitude and approach to work.

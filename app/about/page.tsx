@@ -89,6 +89,14 @@ export default function AboutPage() {
               <ul className="space-y-3 text-slate-600">
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Offer outstanding research in all fields of agricultural production and safe use of agro-pesticides.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
+                  <span>Enhance Somalia&apos;s potential in agriculture and livestock sectors.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
                   <span>Improve food security and nutrition outcomes in target communities</span>
                 </li>
                 <li className="flex gap-3">
@@ -106,10 +114,6 @@ export default function AboutPage() {
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
                   <span>Enhance access to water, sanitation, and hygiene</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--logo-brown)]" />
-                  <span>Advance gender equality and youth empowerment</span>
                 </li>
               </ul>
             </div>

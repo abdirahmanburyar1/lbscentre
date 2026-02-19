@@ -181,8 +181,8 @@ export default async function HomePage() {
             <p className="mt-1 text-sm font-medium text-slate-500">Focus Region</p>
           </div>
           <div className="text-center">
-            <p className="font-display text-2xl font-bold text-[var(--logo-green-dark)] sm:text-3xl md:text-4xl">LNGO</p>
-            <p className="mt-1 text-sm font-medium text-slate-500">Local NGO</p>
+            <p className="font-display text-2xl font-bold text-[var(--logo-green-dark)] sm:text-3xl md:text-4xl">Non Governmental Institute</p>
+            <p className="mt-1 text-sm font-medium text-slate-500">Research Centre</p>
           </div>
         </div>
         </AnimateIn>

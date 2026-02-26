@@ -30,24 +30,16 @@ export function Footer() {
           
           {/* Brand & Intro */}
           <div className="lg:col-span-1 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-5 group">
-              <span className="flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-2.5 shadow-lg ring-2 ring-white/10 transition-transform group-hover:scale-105">
+            <Link href="/" className="inline-flex items-center group">
+              <span className="flex h-20 shrink-0 items-center justify-center overflow-hidden transition-transform group-hover:scale-105 sm:h-24">
                 <Image
-                  src="/lbscentre.png"
-                  alt="LBS Centre Logo"
-                  width={128}
-                  height={128}
-                  className="h-full w-full object-contain"
+                  src="/logo.png"
+                  alt="LBS Centre for Social & Agricultural Development"
+                  width={240}
+                  height={72}
+                  className="h-full w-auto object-contain object-left"
                 />
               </span>
-              <div className="flex flex-col gap-1">
-                <span className="font-display text-3xl font-bold text-white tracking-tight leading-none">
-                  LBS Centre
-                </span>
-                <span className="text-xs capitalize tracking-wider text-[var(--logo-green)] font-bold leading-tight">
-                  For Social & Agricultural Development.
-                </span>
-              </div>
             </Link>
             <div className="flex gap-4">
               {[

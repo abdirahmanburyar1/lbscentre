@@ -63,7 +63,7 @@ export function AdminSidebar() {
           <div className="flex h-16 items-center border-b px-6">
             <Link href="/admin" className="flex items-center gap-2">
               <Image
-                src="/lbscentre.png"
+                src="/logo.png"
                 alt="LBS Centre"
                 width={32}
                 height={32}

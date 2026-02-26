@@ -45,27 +45,19 @@ export function Navbar() {
       <nav className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
         <Link
           href="/"
-          className="flex min-w-0 shrink-0 items-center gap-2 transition opacity-90 hover:opacity-100 sm:gap-3"
+          className="flex min-w-0 shrink-0 items-center transition opacity-90 hover:opacity-100"
           aria-label="LBS Centre for Social & Agricultural Development - Home"
         >
-          <span className={`flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full p-1.5 shadow-md sm:h-16 sm:w-16 ${useLightText ? "bg-white" : "bg-transparent"}`}>
+          <span className={`flex h-16 shrink-0 items-center justify-center overflow-hidden rounded-lg px-2 py-1.5 sm:h-20 sm:px-3 sm:py-2 ${!scrolled ? "bg-[rgba(102,51,0,0.2)]" : "bg-[#6F4C36] shadow-md"}`}>
             <Image
-              src="/lbscentre.png"
+              src="/logo.png"
               alt="LBS Centre for Social & Agricultural Development"
-              width={64}
-              height={64}
-              className="h-full w-full object-contain"
+              width={260}
+              height={80}
+              className="h-full w-auto object-contain object-left"
               priority
             />
           </span>
-          <div className="min-w-0 flex flex-col leading-tight">
-            <span className={`truncate font-display text-base font-semibold tracking-tight sm:text-lg ${useLightText ? "text-white" : "text-[var(--logo-brown)]"}`}>
-              LBS Centre
-            </span>
-            <span className={`hidden truncate sm:block sm:text-sm ${useLightText ? "text-stone-200" : "text-[var(--logo-green-dark)]"}`}>
-              For Social & Agricultural Development
-            </span>
-          </div>
         </Link>
         {/* Desktop nav - fitted to the right */}
         <ul className="ml-auto hidden min-w-0 flex-1 flex-wrap items-center justify-end gap-1 md:flex md:gap-2">

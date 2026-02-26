@@ -35,7 +35,7 @@ export function Card({
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--logo-brown-bg)] to-[var(--logo-green)]/10">
             <Image
-              src="/lbscentre.png"
+              src="/logo.png"
               alt=""
               width={80}
               height={80}

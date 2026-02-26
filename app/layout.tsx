@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   description:
     "LBS Centre for Social & Agricultural Development (LNGO – Somalia). Food security, sustainable agriculture, livestock, climate resilience, WASH, and youth empowerment.",
   icons: {
-    icon: "/lbscentre.png",
-    apple: "/lbscentre.png",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     type: "website",

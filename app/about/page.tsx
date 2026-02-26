@@ -18,7 +18,7 @@ export default function AboutPage() {
 
       <Section title="Background" containerClassName="max-w-3xl">
         <p className="text-slate-600 leading-relaxed">
-          Established in 2024, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community&apos;s resilience to climate change.
+          Established in 2022, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community&apos;s resilience to climate change.
         </p>
       </Section>
 

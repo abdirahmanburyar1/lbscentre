@@ -12,7 +12,7 @@ export function WelcomeSection() {
           <AnimateIn animation="fade-in-up">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-slate-100 shadow-xl lg:max-w-none">
               <Image
-                src="/images/1.jpg" // Placeholder - likely needs to be the co-founder's image
+                src="/images/4.jpg" // Placeholder - likely needs to be the co-founder's image
                 alt="Co-founder of LBS Centre"
                 fill
                 className="object-cover"

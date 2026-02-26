@@ -98,7 +98,7 @@ export default async function HomePage() {
           <AnimateIn animation="fade-in-up" delay={100}>
             <div className="text-base leading-relaxed text-slate-600 sm:text-lg lg:text-left">
               <p className="mb-4">
-                Established in 2024, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community’s resilience to climate change.
+                Established in 2022, LBS Centre for Social & Agricultural Development is a think tank Centre that engages at the intersection of Knowledge, Policy and practice to establish a unique multi-stakeholder agricultural platform that uses advanced technology, skills, and knowledge fundamental to improving smallholder productivity and building the community’s resilience to climate change.
               </p>
               <p>
                 The LBS Centre will help develop Somalia’s commercial agriculture sector by increasing water availability, agricultural productivity, supporting agribusinesses and improving agricultural research and technology.
@@ -148,7 +148,7 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <p className="text-center text-slate-500">No projects yet. Check back soon.</p>
+            <p className="text-center text-slate-500"></p>
           )}
           <div className="mt-12 text-center">
             <Link

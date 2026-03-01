@@ -10,24 +10,25 @@ export function WelcomeSection() {
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--logo-green)] hidden lg:block" aria-hidden />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 lg:pl-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 lg:items-center">
-          {/* Image only – no card, all banner text visible */}
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 lg:items-stretch lg:min-h-[400px]">
+          {/* Image – fills height, right side transparent only */}
           <AnimateIn animation="fade-in-up" className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md w-full lg:max-w-none">
-              <div className="relative aspect-[4/3] w-full">
+            <div className="relative mx-auto max-w-md w-full lg:max-w-none lg:h-full">
+              <div className="relative aspect-[4/3] w-full lg:aspect-auto lg:h-full">
                 <Image
-                  src="/images/4.jpg"
+                  src="/images/4.webp"
                   alt="LBS Centre – For Food Sovereignty. Produce, buy, and eat local."
                   fill
-                  className="object-contain object-center"
-                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  quality={95}
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 600px"
                 />
-                {/* Fade both image sides – transparent using opacity */}
+                {/* Right side transparent only */}
                 <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to bottom, rgba(255,255,255,1) 0%, transparent 22%, transparent 78%, rgba(255,255,255,1) 100%), linear-gradient(to right, rgba(255,255,255,1) 0%, transparent 22%, transparent 78%, rgba(255,255,255,1) 100%)",
+                      "linear-gradient(to right, transparent 50%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%)",
                   }}
                 />
               </div>

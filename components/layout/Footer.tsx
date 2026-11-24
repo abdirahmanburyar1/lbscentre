@@ -31,7 +31,7 @@ export function Footer() {
           {/* Brand & Intro */}
           <div className="lg:col-span-1 space-y-6">
             <Link href="/" className="inline-flex items-center group">
-              <span className="flex h-20 shrink-0 items-center justify-center overflow-hidden transition-transform group-hover:scale-105 sm:h-24">
+              <span className="flex h-20 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-2 shadow-md transition-transform group-hover:scale-105 sm:h-24">
                 <Image
                   src="/logo.png"
                   alt="LBS Centre for Social & Agricultural Development"

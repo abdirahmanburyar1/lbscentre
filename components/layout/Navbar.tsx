@@ -23,7 +23,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
-  const useLightText = isHome && !scrolled;
+  const useLightText = false;
 
   useEffect(() => {
     function onScroll() {
@@ -38,7 +38,7 @@ export function Navbar() {
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
         scrolled
-          ? "border-b border-[var(--logo-green-dark)]/20 bg-[var(--logo-brown-bg)]/95 shadow-md backdrop-blur-md"
+          ? "border-b border-[var(--logo-green-dark)]/20 bg-white/95 shadow-md backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -48,7 +48,7 @@ export function Navbar() {
           className="flex min-w-0 shrink-0 items-center transition opacity-90 hover:opacity-100"
           aria-label="LBS Centre for Social & Agricultural Development - Home"
         >
-          <span className={`flex h-16 shrink-0 items-center justify-center overflow-hidden rounded-lg px-2 py-1.5 sm:h-20 sm:px-3 sm:py-2 ${!scrolled ? "bg-[rgba(102,51,0,0.2)]" : "bg-[#6F4C36] shadow-md"}`}>
+          <span className={`flex h-16 shrink-0 items-center justify-center overflow-hidden rounded-lg px-2 py-1.5 sm:h-20 sm:px-3 sm:py-2 bg-white/95 shadow-sm ${scrolled ? "ring-1 ring-slate-200" : "shadow-lg"}`}>
             <Image
               src="/logo.png"
               alt="LBS Centre for Social & Agricultural Development"

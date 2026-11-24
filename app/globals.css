@@ -2,23 +2,24 @@
 
 /* LBS Centre logo core colors */
 :root {
-  --logo-brown: #6b421a;
-  --logo-brown-light: #8b5a2b;
-  --logo-brown-bg: #f5efe8;
-  --logo-green: #59a500;
-  --logo-green-bright: #6bc00f;
-  --logo-green-dark: #3f7c0a;
-  --logo-green-darker: #356a00;
-  --logo-yellow: #fdd03a;
-  --logo-yellow-muted: #fbc02d;
+  /* Names kept for compatibility: "brown" = brand navy, "yellow" = brand gold */
+  --logo-brown: #1b3358;
+  --logo-brown-light: #2a4a7a;
+  --logo-brown-bg: #f3f6fa;
+  --logo-green: #2f8a3e;
+  --logo-green-bright: #3fa34f;
+  --logo-green-dark: #22692f;
+  --logo-green-darker: #1a5224;
+  --logo-yellow: #d4a63c;
+  --logo-yellow-muted: #c39332;
   /* UI derived from logo */
-  --bg: #faf9f7;
+  --bg: #f8fafc;
   --bg-elevated: #ffffff;
-  --fg: #1c1917;
-  --fg-muted: #57534e;
-  --accent: #59a500;
-  --accent-hover: #3f7c0a;
-  --border: #e7e5e4;
+  --fg: #0f1e33;
+  --fg-muted: #4a5568;
+  --accent: #2f8a3e;
+  --accent-hover: #22692f;
+  --border: #e2e8f0;
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);

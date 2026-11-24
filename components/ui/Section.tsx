@@ -27,8 +27,9 @@ export function Section({
                 {title}
               </h2>
             )}
+            {title && <span className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[var(--logo-yellow)]" />}
             {subtitle && (
-              <p className="mt-2 max-w-2xl mx-auto text-base text-stone-600 sm:mt-3 sm:text-lg">
+              <p className="mt-2 max-w-2xl mx-auto text-base text-slate-600 sm:mt-4 sm:text-lg">
                 {subtitle}
               </p>
             )}

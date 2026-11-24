@@ -22,7 +22,6 @@ const SCROLL_THRESHOLD = 24;
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const isHome = pathname === "/";
   const useLightText = false;
 
   useEffect(() => {

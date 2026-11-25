@@ -1,0 +1,34 @@
+# LBS Centre — lbscentre.net. Edge: /opt/edge/conf.d/lbscentre.conf -> 127.0.0.1:3120
+name: lbscentre
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: lbscentre
+      POSTGRES_USER: lbscentre
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lbscentre"]
+      interval: 5s
+      retries: 20
+    mem_limit: 512m
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY: ${NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY}
+        NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT: ${NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+    image: lbscentre-web:1
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://lbscentre:${DB_PASSWORD}@db:5432/lbscentre
+    ports: ["127.0.0.1:3120:3000"]
+    mem_limit: 768m
+volumes:
+  pgdata:

@@ -44,10 +44,10 @@ export function Navbar() {
       <nav className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
         <Link
           href="/"
-          className="flex min-w-0 shrink-0 items-center transition opacity-90 hover:opacity-100"
+          className="flex min-w-0 shrink-0 items-center transition hover:opacity-90"
           aria-label="LBS Centre for Social & Agricultural Development - Home"
         >
-          <span className={`flex h-16 shrink-0 items-center justify-center overflow-hidden rounded-lg px-2 py-1.5 sm:h-20 sm:px-3 sm:py-2 bg-white/95 shadow-sm ${scrolled ? "ring-1 ring-slate-200" : "shadow-lg"}`}>
+          <span className={`flex h-16 shrink-0 items-center sm:h-20 ${scrolled ? "" : "[filter:drop-shadow(0_0_1px_#fff)_drop-shadow(0_0_6px_rgba(255,255,255,0.95))]"}`}>
             <Image
               src="/logo.png"
               alt="LBS Centre for Social & Agricultural Development"

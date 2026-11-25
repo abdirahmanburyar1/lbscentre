@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { FocusAreasSection } from "@/components/ui/FocusAreasSection";
+import { HeroBackground } from "@/components/ui/HeroBackground";
 import { VisionMissionValuesSection } from "@/components/ui/VisionMissionCard";
 import { WelcomeSection } from "@/components/ui/WelcomeSection";
 import { getFeaturedProjects, getProjectCount } from "@/lib/queries/projects";
@@ -48,6 +49,32 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Hero - overlaps under fixed transparent navbar; scrolling images */}
+      <section className="relative -mt-[92px] min-h-[420px] overflow-hidden bg-[var(--logo-brown)] pt-[92px] sm:-mt-[112px] sm:min-h-[480px] sm:pt-[112px] lg:min-h-[520px]">
+        <HeroBackground />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(107,66,26,0.82)_0%,rgba(107,66,26,0.78)_50%,rgba(63,124,10,0.22)_100%)]" />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-16 sm:px-6 sm:py-24 lg:items-start lg:px-8 lg:py-32">
+          <div className="animate-fade-in-up max-w-2xl">
+            <h1 className="font-display text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl lg:leading-tight break-words">
+              LBS Centre for Social & Agricultural Development
+            </h1>
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link
+                href="/about"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[var(--logo-green)] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-[var(--logo-green-dark)] active:bg-[var(--logo-green-darker)] hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Learn About Us
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl border-2 border-[var(--logo-yellow)] px-6 py-3.5 text-sm font-semibold text-[var(--logo-yellow)] transition hover:bg-[var(--logo-yellow)]/20 active:bg-[var(--logo-yellow)]/30 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Who We Are - one row: image + text side by side */}
       <Section
